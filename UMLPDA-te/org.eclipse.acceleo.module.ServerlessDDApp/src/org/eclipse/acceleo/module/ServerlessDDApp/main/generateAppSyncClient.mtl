@@ -1,0 +1,694 @@
+[comment encoding = UTF-8 /]
+[module generateAppSyncClient('http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard', 'http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/uml2/5.0.0/Types')]
+
+
+[template public generateAppSyncClient(cModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[for (sm : StateMachine | cModel.ownedElement->filter(StateMachine))]
+[file('app-Routing.module.ts',false,'UTF-8')]
+[for(r: Region | sm.ownedElement -> filter(Region))]
+	[for(initialstatecheck: Pseudostate | r.ownedElement -> filter(Pseudostate))]
+	[if((initialstatecheck.kind.toString() = 'initial')<>false)]	
+	
+	[for (st : State | r.ownedElement -> filter(State))]
+	
+		[if(st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::UI_Router'), 'Route_Path').toString() <> 'invalid')]		
+			{path: "[st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::UI_Router'), 'Route_Path')/]
+		[elseif(st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::UI_Router'), 'Route_Path').toString().oclIsInvalid())][''/][/if]	
+		
+		[if(st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::UI_Router'), 'Router_Param').toString().matches(''))]['"'/]		
+			[elseif(st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::UI_Router'), 'Router_Param').toString() <> 'invalid')]
+			[for (ocl:OclAny |st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::UI_Router'), 'Router_Param'))separator('\n')]
+			/:[ocl.oclAsType(Property).name/]",
+			[/for]
+		[/if]		
+				
+
+	[if(st.qualifiedName.contains('Component'))]
+	component: [st.name/]},
+	[file ('Frontend/'.concat(st.name).concat('.ts'), false, 'UTF-8')]	
+		// Import Statements
+		// Component decorator
+	export class [st.name/] implements OnInit{ 
+		[StateVariables(st,cModel)/]
+	constructor(//params){}
+			
+	[for (hasreg: Region | st.ownedElement-> filter(Region))]
+		[if (hasreg<>null)]	
+					[PassingDataBetweenRoutes(st,cModel)/]
+			[NestedStates(st,cModel)/]
+	[/if][/for]
+	
+	[/file]
+	[/if]
+	[if(st.qualifiedName.contains('Resolver'))]
+	[file ('Backend/'.concat(st.name.concat('.request')), false, 'UTF-8')]
+	[generateDataResolvers(st,cModel)/]
+	[/file][/if]
+	[/for]
+	[/if]
+	[/for]
+	
+[/for][/file]
+[/for]
+
+[/template]
+	
+[template public NestedStates(stm:State,dModel : Model) post(replaceAll('\n','').trim())]
+
+
+[for(reg: Region | stm.ownedElement -> filter(Region))]
+  
+		[for(initialstate: Pseudostate | reg.ownedElement -> filter(Pseudostate))]
+		[if(initialstate.kind.toString() <> 'initial')]
+        [initialstate.name/]
+		[/if]
+		[/for]
+		[for(initialstate: Pseudostate | reg.ownedElement -> filter(Pseudostate))]
+		[if(initialstate.kind.toString() <> 'initial')]
+        [initialstate.name/]
+		[/if]
+		[/for]
+					
+		   [for(state: State | reg.ownedElement -> filter(State))]
+			
+			[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Authentication'), 'Variables').toString()<> 'invalid')]
+						[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Authentication'), 'Variables'))separator('\n')]
+						[ocl.oclAsType(Property).name/]:[ocl.oclAsType(Property).type.name/];
+						[/for]
+				[SignInState(state,dModel)/]
+			[/if]
+
+			[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Authentication'), 'Operations').toString()<> 'invalid')]
+			[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Authentication'), 'Operations'))separator('\n')]
+			[if (ocl.oclAsType(Operation).name.oclIsUndefined()) <> true] 
+			[ocl.oclAsType(Operation).name/]()
+			{ 
+				[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Authentication'), 'Service_Variable').toString()<> 'invalid')]
+			[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Authentication'), 'Service_Variable'))separator('\n')]
+			this.[ocl.oclAsType(Property).name/].auth.[/for] [/if][ocl.oclAsType(Operation).name/]();
+			[/if][/for]}[/if]
+	
+			
+			
+			[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Operations').toString()<> 'invalid')]
+			[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Operations'))separator('\n')]
+			[if (ocl.oclAsType(Operation).name.oclIsUndefined() <> true)] 
+				[ocl.oclAsType(Operation).name/]
+				[if(ocl.oclAsType(Operation).ownedParameter.oclIsUndefined() <> false)](){
+				[elseif(ocl.oclAsType(Operation).ownedParameter.oclIsUndefined() <> true)]
+				[for(prop:Parameter|ocl.oclAsType(Operation).ownedParameter->filter(Parameter))separator(',')]
+					[if(prop.direction.toString() = 'in')]
+						([prop.name/])
+						
+					[/if][/for]
+				
+				[/if]
+				[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Variables').toString()<> 'invalid')]
+			[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Variables'))separator('\n')]
+			
+			[if (ocl.oclAsType(Property).isStatic.toString().equalsIgnoreCase('false'))]
+				[if (ocl.oclAsType(Property).type.oclIsUndefined()) <> true] [ocl.oclAsType(Property).name/]:[ocl.oclAsType(Property).type.name/];
+				[elseif (ocl.oclAsType(Property).type.oclIsUndefined()) <> false][ocl.oclAsType(Property).name/];
+				[/if]
+			
+			
+			[elseif (ocl.oclAsType(Property).isStatic.toString().equalsIgnoreCase('true'))]
+				[if(ocl.oclAsType(Property).type.name.oclIsUndefined() <> false)]
+					[if(ocl.oclAsType(Property).defaultValue.stringValue().oclIsUndefined())<> true]const [ocl.oclAsType(Property).name/]= [ocl.oclAsType(Property).defaultValue.stringValue()/];[/if]
+				[/if]
+				[if(ocl.oclAsType(Property).type.name.oclIsUndefined() <> true)]
+					[if (ocl.oclAsType(Property).defaultValue.stringValue().oclIsUndefined())<> false]
+						const [ocl.oclAsType(Property).name/]:[ocl.oclAsType(Property).type.name/] = {
+						[for(p:Property|ocl.oclAsType(Property).subsettedProperty->filter(Property)) separator('\n')]
+							[p.oclAsType(Property).name/]:[if(p.oclAsType(Property).defaultValue.stringValue().oclIsUndefined() <> true)][p.oclAsType(Property).defaultValue.stringValue()/],[/if][/for]}
+				[/if][/if][/if]
+			[/for]
+			[/if]
+			
+				[if(state.doActivity.oclAsType(OpaqueBehavior)._body.oclIsUndefined()<>true)]
+				{[state.doActivity.oclAsType(OpaqueBehavior)._body/]}
+				[/if]
+
+				[if(state.entry.oclAsType(OpaqueBehavior)._body.oclIsUndefined()<>true)]
+				{[state.entry.oclAsType(OpaqueBehavior)._body/]}
+				[/if]
+			 [/if]
+			[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Router_Param').toString()<> 'invalid')]
+					[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Router_Param'))separator('\n')]
+						[if(ocl.oclAsType(Property).defaultValue.stringValue().oclIsUndefined())<> true]const [ocl.oclAsType(Property).name/]= [ocl.oclAsType(Property).defaultValue.stringValue()/];[/if]
+					[/for]
+			[/if]
+			
+					[OutgoingStateTrigger(state,dModel)/]
+					[generateQueriesandMutations(state,dModel)/]
+					[IncomingStateTrigger(state,dModel)/]
+					[generateSubscriptions(state,dModel)/]
+
+			[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'C_Parameter').toString()<> 'invalid')]
+					[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'C_Parameter'))separator('\n')]
+					[if(ocl.oclAsType(Property).type.name.equalsIgnoreCase('Router'))]
+					this.[ocl.oclAsType(Property).name/].		
+				[/if]
+					[/for][/if]			
+				
+				[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Route_Path').toString()<> '0')]
+					navigate(['['/]'[state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Route_Path')/]'[']'/]);}
+				[/if]
+
+				
+		[/for]
+	[/if]
+			[/for]
+[/for]
+[/template]
+	
+[template public OutgoingStateTrigger(st:State,tModel : Model) post(replaceAll('\n','').trim())]
+	[for(trans: Transition | st.outgoing -> filter(Transition))]
+	     		     							              
+	    [for(trig : Trigger | trans.trigger->filter(Trigger))]
+		
+		[if(trig.name.equalsIgnoreCase('watchQuery'))<> false]
+		[if(st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'C_Parameter').toString()<> 'invalid')]
+		[for (ocl:OclAny |st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'C_Parameter'))separator('\n')]
+		[if(ocl.oclAsType(Property).type.name.equalsIgnoreCase('AppsyncService'))]		
+		this.[ocl.oclAsType(Property).name/].hc().then(client => {
+    	const observable = client.[trig.name/]({
+		query: [trig.event.name/],
+		[if (trans.guard.specification.stringValue().toString() <> 'invalid')]
+		fetchPolicy: [trans.guard.specification.stringValue()/]}); [/if][/if][/for][/if]
+	
+		[elseif(trig.name.equalsIgnoreCase('mutate'))<> false]
+		[if(st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'C_Parameter').toString()<> 'invalid')]
+		[for (ocl:OclAny |st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'C_Parameter'))separator('\n')]
+		[if(ocl.oclAsType(Property).type.name.equalsIgnoreCase('AppsyncService'))]		
+		this.[ocl.oclAsType(Property).name/].hc().then(client => {[/if][/for][/if]
+    	client.[trig.name/]({
+		mutation: [trig.event.name/]
+		variables:[if(st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Variables').toString()<> 'invalid')]
+					[for (ocl:OclAny |st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Variables'))separator('\n')]
+					[if(ocl.oclAsType(Property).type.oclAsType(Class).name <> false)]
+						[ocl.oclAsType(Property).name/]
+										
+					optimisticResponse: () => ({
+						[trig.event.name/]:{
+             				...[ocl.oclAsType(Property).name/],
+					__typename: 
+						'[ocl.oclAsType(Property).type.name/]',
+						[if(trig.event.oclAsType(CallEvent).operation.getApplicableStereotype('ServerlessDDProfile::SDDProfile::Request_Data') <> 'invalid')]
+							[for(o:Operation|trig.event.oclAsType(CallEvent).operation->filter(Operation))]
+							[if(o.getValue(o.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Request_Data'), 'Fields').toString()<> 'invalid')]
+								[for(ocl:OclAny | o.getValue(o.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Request_Data'), 'Fields')) ]
+						 		[if(ocl.oclAsType(Property).type.oclAsType(Class) <> false)]
+								[ocl.oclAsType(Property).name/]:{__typename:'[ocl.oclAsType(Property).type.name/]',[ocl.oclAsType(Property).subsettedProperty.name/]:['[]'/]}
+								[/if]
+							[/for]
+						 [/if]				
+						 [/for][/if]
+					[elseif(ocl.oclAsType(Property).type.oclAsType(Class).oclIsUndefined() <> false)]
+						[if(ocl.oclAsType(Property).defaultValue.oclIsUndefined() <> true)]
+						{[ocl.oclAsType(Property).name/]:[ocl.oclAsType(Property).defaultValue.stringValue()/]}[/if]
+					  }
+         }),		
+		[/if]
+		[if(ocl.oclAsType(Property).type.oclAsType(Class).name.equalsIgnoreCase('true'))]
+		update: (proxy, {data: { [trig.event.name/], _[ocl.oclAsType(Property).name/]}}) => {[/if]
+				
+		[/for]
+			[WriteQuery(st,tModel)/]
+			[ReadQuery(st,tModel)/]		[/if]
+
+		[elseif(trig.name.equalsIgnoreCase('onmutate'))<> false]
+			client.mutate({
+       		 mutation: [trig.event.name/],
+       		 variables: :[if(st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Variables').toString()<> 'invalid')]
+					[for (ocl:OclAny |st.getValue(st.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Variables'))separator('\n')]
+					[if(ocl.oclAsType(Property).type.oclAsType(Class).oclIsUndefined() <> false)]
+						[ocl.oclAsType(Property).name/]})[/if]
+					[if (trans.effect.oclIsUndefined() <> true)]
+					[trans.effect.oclAsType(OpaqueBehavior)._body/]});
+      })
+		[/if][/for][/if]
+		[/if]
+		
+		
+				[/for]
+		[/for]
+
+
+
+[/template]
+
+[template public WriteQuery(stm:State,dModel : Model) post(replaceAll('\n','').trim())]
+[for(trans: Transition | stm.outgoing -> filter(Transition))]
+	     		     							              
+	   [for(trig : Trigger | trans.trigger->filter(Trigger))]
+		
+[if(trig.name.equalsIgnoreCase('writeQuery'))<> false]
+		 [if (trans.effect.oclIsUndefined() <> true)]
+				[trans.effect.oclAsType(OpaqueBehavior)._body/]  [/if]} 
+[/if]
+[/for]
+[/for]
+[/template]
+
+[template public SubscribeToMore(stm:State,dModel : Model) post(replaceAll('\n','').trim())]
+[for(trans: Transition | stm.outgoing -> filter(Transition))]
+	     		     							              
+	   [for(trig : Trigger | trans.trigger->filter(Trigger))]
+		
+		[if(trig.name.equalsIgnoreCase('Subscription')) <> false]
+					this.subscription = observable.subscribeToMore({
+      				document: [trig.event.name/],
+					[if (trans.effect.oclIsUndefined() <> true)]
+					[trans.effect.oclAsType(OpaqueBehavior)._body/]});
+				}
+					[/if][/if]
+[/for]
+[/for]
+[/template]
+
+[template public ReadQuery(stm:State,dModel : Model) post(replaceAll('\n','').trim())]
+[for(trans: Transition | stm.outgoing -> filter(Transition))]
+	     		     							              
+	   [for(trig : Trigger | trans.trigger->filter(Trigger))]
+		
+[if(trig.name.equalsIgnoreCase('readQuery'))<> false]
+		 [if (trans.effect.oclIsUndefined() <> true)]
+				[trans.effect.oclAsType(OpaqueBehavior)._body/]  [/if]} 
+[/if]
+[/for]
+[/for]
+[/template]
+
+
+[template public IncomingStateTrigger(stm:State,dModel : Model) post(replaceAll('\n','').trim())]
+
+[for(trans: Transition | stm.incoming -> filter(Transition))]
+	     		     							              
+	              [for(trig : Trigger | trans.trigger->filter(Trigger))]
+					
+
+					[if(trig.name.equalsIgnoreCase('subscribe')) <> false]
+					[if (trans.effect.oclIsUndefined() <> true)]
+					[trans.effect.oclAsType(OpaqueBehavior)._body/]
+				}
+					[/if][/if]
+					[SubscribeToMore(stm,dModel)/]
+
+			[/for]
+[/for]
+
+[/template]
+
+[template public SignInState(stm:State,dModel : Model) post(replaceAll('\n','').trim())]
+
+
+				
+		[for(trans: Transition | stm.outgoing -> filter(Transition))]
+	      		              
+	            [for(trig : Trigger |trans.trigger->filter(Trigger))]
+				[if(trig.name.equalsIgnoreCase('signedIn'))<> false]
+					[if (trans.effect.oclIsUndefined() <> true)]
+					[trans.effect.oclAsType(OpaqueBehavior)._body/][/if]
+				}
+				[/if]
+			
+		[/for]
+
+[/for]
+
+
+[/template]
+
+[template public generateDataResolvers(stm:State,dModel : Model) post(replaceAll('\n','').trim())]
+
+	
+
+	[if(stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Operations').toString()<> 'invalid')]
+		{
+		[for (ocl:OclAny |stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Operations'))]
+			"version":  "2017-02-28",
+			"operation" : "[ocl.oclAsType(Operation).name/]",
+			[if(ocl.oclAsType(Operation).isQuery) <> true] 
+				[if(stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'key').toString()<> 'invalid')]
+				"key": {
+				[for (ocl:OclAny |stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'key'))] 
+				[if (ocl.oclAsType(Property).isReadOnly <> false)]"[ocl.oclAsType(Property).name/]": {"[ocl.oclAsType(Property).type.name.at(1)/]" : "${context.identity.[ocl.oclAsType(Property).defaultValue.stringValue()/]}"},
+				[elseif (ocl.oclAsType(Property).isReadOnly <> true)]
+				"[ocl.oclAsType(Property).name/]": {"[ocl.oclAsType(Property).type.name.at(1)/]" : "${context.arguments.[ocl.oclAsType(Property).name/]}"}
+				[/if][/for]
+				},
+				[/if]
+	
+				[if(stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Variables').toString()<> '')]
+					"attributeValues" : {
+					[for (ocl:OclAny |stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Variables'))]
+					[if (ocl.oclAsType(Property).isReadOnly <> false)]"[ocl.oclAsType(Property).name/]": {"[ocl.oclAsType(Property).type.name.at(1)/]" : "${context.identity.[ocl.oclAsType(Property).defaultValue.stringValue()/]}"},
+						
+
+					[elseif (ocl.oclAsType(Property).isReadOnly <> true)]
+						[if (ocl.oclAsType(Property).type.name) = 'BOOL']
+						"[ocl.oclAsType(Property).name/]": {"[ocl.oclAsType(Property).type.name/]" : [ocl.oclAsType(Property).defaultValue.booleanValue()/]},
+						[elseif(ocl.oclAsType(Property).type.name) <> 'BOOL']
+						"[ocl.oclAsType(Property).name/]": {"[ocl.oclAsType(Property).type.name.at(1)/]" : "${context.arguments.[ocl.oclAsType(Property).name/]}"},
+						[/if]				
+					[/if]
+					[/for]
+					}
+				[/if]}
+				[if(ocl.oclAsType(Operation).name->includes('UpdateItem'))]
+						[if(stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Value_Placeholder').toString()<> 'invalid')]
+								 "update" : {
+				       				 "expression": "Set [for (ocl:OclAny |stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Value_Placeholder'))]
+										 [ocl.oclAsType(Property).name/] = :[ocl.oclAsType(Property).name/]",[/for]
+				       				 "expressionValues" :{												 
+											 { [for (ocl:OclAny |stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Values'))]
+											       [if (ocl.oclAsType(Property).type.name) <> 'BOOL']
+													":[ocl.oclAsType(Property).name/]": {"[ocl.oclAsType(Property).type.name.at(1)/]" : "${context.arguments.[ocl.oclAsType(Property).name/]}"},
+													[elseif (ocl.oclAsType(Property).type.name) = 'BOOL']
+													":[ocl.oclAsType(Property).name/]": {"[ocl.oclAsType(Property).type.name/]" : [ocl.oclAsType(Property).defaultValue.booleanValue()/]},"[/if]
+												           				
+				   								 [/for]
+								 }
+							}
+							[/if]
+				}[/if]
+				[generateWriteResponse(stm,dModel)/] 
+
+			[elseif(ocl.oclAsType(Operation).isQuery) <> false] 
+					[if(ocl.oclAsType(Operation).name)->includes('Scan')]
+						[if(stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Variables').toString()<> '')]
+						[for (ocl:OclAny |stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Variables'))]
+	   					 "[ocl.oclAsType(Property).name/]": #if(${context.arguments.[ocl.oclAsType(Property).name/]}) ${context.arguments.[ocl.oclAsType(Property).name/]} #else 20 #end,
+	    				[/for]
+						[/if]
+				[generateReadResponse(stm,dModel)/]	
+			[/if]
+
+					[if(ocl.oclAsType(Operation).name)->includes('GetItem')] 
+							[if(stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'key').toString()<> 'invalid')]
+								[for (ocl:OclAny |stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'key'))]
+			   					 "[ocl.oclAsType(Property).name/]": {"[ocl.oclAsType(Property).type.name/]" : "${context.arguments.[ocl.oclAsType(Property).name/]}"}
+			    				[/for]
+							[/if]
+					[generateWriteResponse(stm,dModel)/]
+					[/if]	
+
+					[if(ocl.oclAsType(Operation).name)->includes('Query')]
+					[if(stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Value_Placeholder').toString()<> 'invalid')]		
+						[if(stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Secondary_Index').toString()<> 'invalid')]
+						index:"[stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Secondary_Index') /]"	
+					[/if]
+								 "query" : {
+				       				 "expression": [for (ocl:OclAny |stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Value_Placeholder'))]
+										"[ocl.oclAsType(Property).name/] = :[ocl.oclAsType(Property).name/]",
+				       				 "expressionValues" :{												 
+											":[ocl.oclAsType(Property).name/]"[/for][/if] : { [for (ocl:OclAny |stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Values'))]
+											       [if(stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Values').toString()<> 'invalid')] 
+				               					 "[ocl.oclAsType(Property).type.name.at(1)/]" : "$context.source.[ocl.oclAsType(Property).name/]}"[/if]
+				           				 }
+				      				  }
+				   				 },[/for]
+								[if(stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Variables').toString()<> '')]
+								[for (ocl:OclAny |stm.getValue(stm.getAppliedStereotype('ServerlessDDProfile::SDDProfile::StorageSystemProtocolConverter'), 'Variables'))]
+			   					 "[ocl.oclAsType(Property).name/]": #if(${context.arguments.[ocl.oclAsType(Property).name/]}) ${context.arguments.[ocl.oclAsType(Property).name/]} #else 20 #end,
+			    				[/for]
+								[/if]
+						[generateReadResponse(stm,dModel)/]
+						[/if]
+				}
+			
+			[/if]
+		
+		[/for]
+	[/if]
+			
+
+[/template]
+
+[template public generateQueriesandMutations(stm:State,dModel : Model) post(replaceAll('\n','').trim())]
+
+[for(trans: Transition | stm.outgoing -> filter(Transition))]
+	     		     							              
+[for(trig : Trigger | trans.trigger->filter(Trigger))]
+
+[if(trig.name.equalsIgnoreCase('Mutation'))]
+[file ('Frontend/GraphQL/mutations/'.concat(trig.event.name).concat('.ts'), false, 'UTF-8')]
+		
+import gql from 'graphql-tag';
+
+export default gql`
+mutation [trig.event.name/] ([for (prop : Parameter | trig.event.oclAsType(CallEvent).operation.ownedParameter->filter(Parameter))separator(',')][if(prop.direction.toString()= 'in')] [if(prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier').toString()='invalid')]$[prop.name/]:[prop.type.name/][elseif(prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier').toString()='Required')][for(ocl:OclAny | prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier')) ]$[prop.name/]:[prop.type.name.concat('!')/][/for][/if][/if][/for]) {
+	[trig.event.oclAsType(CallEvent).operation.name/] ([for (prop : Parameter | trig.event.oclAsType(CallEvent).operation.ownedParameter->filter(Parameter))][if(prop.direction.toString()= 'in')][prop.name/]:$[prop.name.concat(',')/] [/if][/for])  {
+		__typename
+			[for(o:Operation|trig.event.oclAsType(CallEvent).operation->filter(Operation))]
+			[if(o.getValue(o.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Request_Data'), 'Fields').toString()<> 'invalid')]
+			[for(ocl:OclAny | o.getValue(o.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Request_Data'), 'Fields')) ]
+			
+			[for(p:Property|ocl.oclAsType(Property)->filter(Property))]
+					[p.oclAsType(Property).name/]
+				[if(p.oclAsType(Property).subsettedProperty.oclIsUndefined() <> true)]				
+				
+					[for(p:Property|ocl.oclAsType(Property).subsettedProperty->filter(Property))]
+					{ [p.oclAsType(Property).name/]{
+						[if(p.oclAsType(Property).subsettedProperty.oclIsUndefined() <> true)]
+						[for(p:Property|p.oclAsType(Property).subsettedProperty->filter(Property))]
+							[if(p.oclAsType(Property).type.name.toString() <> 'invalid')]
+							[p.oclAsType(Property).name/]
+							
+							[/if][/for]}
+						[/if]
+					[/for]
+				
+				[/if]
+			[/for]
+		
+			[/for]}
+			[/if]
+	[/for]
+
+}
+}';
+[/file]
+
+
+
+[elseif(trig.name.equalsIgnoreCase('Query'))]
+[file ('Frontend/GraphQL/queries/'.concat(trig.event.name).concat('.ts'), false, 'UTF-8')]
+
+import gql from 'graphql-tag';
+
+export default gql`
+query [trig.event.name/] ([for (prop : Parameter |trig.event.oclAsType(CallEvent).operation.ownedParameter->filter(Parameter))separator(',')][if(prop.direction.toString()= 'in')][if(prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier').toString()='invalid')]$[prop.name/]:[prop.type.name/][elseif(prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier').toString()='Required')][for(ocl:OclAny | prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier')) ]$[prop.name/]:[prop.type.name.concat('!')/][/for][/if][/if][/for]) {
+
+[if(trig.event.oclAsType(CallEvent).operation.getApplicableStereotype('ServerlessDDProfile::SDDProfile::Request_Data') <> 'invalid')]
+	[if(trig.event.oclAsType(CallEvent).operation.isQuery <> false)]{
+	[trig.event.oclAsType(CallEvent).operation.name/]([for (prop : Parameter | trig.event.oclAsType(CallEvent).operation.ownedParameter->filter(Parameter)) separator(',')][if(prop.direction.toString()= 'in')][prop.name/]:$[prop.name/][/if][/for])
+	__typename 
+		[for(o:Operation|trig.event.oclAsType(CallEvent).operation->filter(Operation))]
+		[if(o.getValue(o.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Request_Data'), 'Fields').toString()<> 'invalid')]
+		[for(ocl:OclAny | o.getValue(o.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Request_Data'), 'Fields')) ]
+			[for(p:Property|ocl.oclAsType(Property)->filter(Property))]
+					[p.oclAsType(Property).name/]
+				[if(p.oclAsType(Property).subsettedProperty.oclIsUndefined() <> true)]				
+					[for(p:Property|ocl.oclAsType(Property).subsettedProperty->filter(Property))]
+					{[p.oclAsType(Property).name/]
+						[if(p.oclAsType(Property).subsettedProperty.oclIsUndefined() <> true)]
+						[for(p:Property|p.oclAsType(Property).subsettedProperty->filter(Property))]
+							[if(p.oclAsType(Property).type.name.oclIsUndefined() <> true)]
+							{[p.oclAsType(Property).name/]
+							[elseif(p.oclAsType(Property).type.name.oclIsUndefined() <> false)]
+							[p.oclAsType(Property).name/]
+							[/if][/for]}
+						[/if]
+					[/for]
+				
+				[/if]
+			[/for]
+		[/for]}
+		[/if]
+	
+		
+}
+}';
+		
+[/for]
+
+
+[elseif(trig.event.oclAsType(CallEvent).operation.isQuery <> true)]{
+	 [trig.event.oclAsType(CallEvent).operation.name/]([for (prop : Parameter | trig.event.oclAsType(CallEvent).operation.ownedParameter->filter(Parameter)) separator(',')][if(prop.direction.toString()= 'in')][prop.name/]:$[prop.name/][/if][/for])
+	
+		[for(o:Operation|trig.event.oclAsType(CallEvent).operation->filter(Operation))]
+		[if(o.getValue(o.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Request_Data'), 'Fields').toString()<> 'invalid')]
+		[for(ocl:OclAny | o.getValue(o.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Request_Data'), 'Fields')) ]
+			[for(p:Property|ocl.oclAsType(Property)->filter(Property))]
+					[p.oclAsType(Property).name/]{
+					__typename 
+					[if(p.oclAsType(Property).subsettedProperty.oclIsUndefined() <> true)]				
+					[for(p:Property|ocl.oclAsType(Property).subsettedProperty->filter(Property))]
+					[p.oclAsType(Property).name/]
+						[if(p.oclAsType(Property).subsettedProperty.oclIsUndefined() <> true)]
+						[for(p:Property|p.oclAsType(Property).subsettedProperty->filter(Property))]
+							[if(p.oclAsType(Property).type.name.oclIsUndefined() <> true)]
+							{[p.oclAsType(Property).name/]
+							[elseif(p.oclAsType(Property).type.name.oclIsUndefined() <> false)]
+							[p.oclAsType(Property).name/]
+							[/if]
+							[if(p.oclAsType(Property).subsettedProperty.oclIsUndefined() <> true)]
+							{
+							[for(p:Property|p.oclAsType(Property).subsettedProperty->filter(Property))]
+							[p.oclAsType(Property).name/]
+							[/for][/if]
+						[/for]
+						[/if]
+					[/for]
+					
+				[/if]
+			[/for]
+		[/for]}
+		}
+		[/if]
+		[/for]
+}
+}';
+
+[/if]
+[/if]
+[/file]
+[/if]
+[/for]
+[/for]
+[/template]
+
+[template public generateSubscriptions(stm:State,dModel : Model) post(replaceAll('\n','').trim())]
+[for(trans: Transition | stm.outgoing -> filter(Transition))]
+	     		     							              
+[for(trig : Trigger | trans.trigger->filter(Trigger))]
+[if(trig.name.equalsIgnoreCase('Subscription'))]
+	
+[file ('Frontend/GraphQL/subscriptions/'.concat(trig.event.name).concat('.ts'), false, 'UTF-8')]
+import gql from 'graphql-tag';
+
+export default gql`
+subscription [trig.event.name/] ([for (prop : Parameter | trig.event.oclAsType(CallEvent).operation.ownedParameter->filter(Parameter))separator(',')][if(prop.direction.toString()= 'in')] [if(prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier').toString()='invalid')]$[prop.name/]:[prop.type.name/][elseif(prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier').toString()='Required')][for(ocl:OclAny | prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier')) ]$[prop.name/]:[prop.type.name.concat('!')/][/for][/if][/if][/for]) {
+	[trig.event.oclAsType(CallEvent).operation.name/] ([for (prop : Parameter | trig.event.oclAsType(CallEvent).operation.ownedParameter->filter(Parameter))][if(prop.direction.toString()= 'in')][prop.name/]:$[prop.name.concat(',')/] [/if][/for])  {
+		__typename
+			[for(o:Operation|trig.event.oclAsType(CallEvent).operation->filter(Operation))]
+			[if(o.getValue(o.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Request_Data'), 'Fields').toString()<> 'invalid')]
+		[for(ocl:OclAny | o.getValue(o.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Request_Data'), 'Fields')) ]
+			[for(p:Property|ocl.oclAsType(Property)->filter(Property))]
+					[p.oclAsType(Property).name/]
+				[if(p.oclAsType(Property).subsettedProperty.oclIsUndefined() <> true)]				
+				
+					[for(p:Property|ocl.oclAsType(Property).subsettedProperty->filter(Property))]
+					{[p.oclAsType(Property).name/]
+						[if(p.oclAsType(Property).subsettedProperty.oclIsUndefined() <> true)]
+						[for(p:Property|p.oclAsType(Property).subsettedProperty->filter(Property))]
+							[if(p.oclAsType(Property).type.name.toString() <> 'invalid')]
+							{[p.oclAsType(Property).name/]
+							
+							[/if][/for]}
+						[/if]
+					[/for]
+				
+				[/if]
+			[/for]
+		[/for]}
+		[/if]		
+		[/for]
+	}';
+[/file]
+[/if]
+[/for]
+[/for]
+[/template]
+
+[template public generateWriteResponse(st:State,dModel : Model) post(replaceAll('\n','').trim())]
+[file('Backend/'.concat(st.name.concat('.response')),false,'UTF-8')]
+	$util.toJson($context.result)
+ [/file]
+[/template]
+
+[template public generateReadResponse(st:State,dModel : Model) post(replaceAll('\n','').trim())]
+[file('Backend/'.concat(st.name.concat('.response')),false,'UTF-8')]
+{
+    "items": $util.toJson($context.result.items),
+    "nextToken": $util.toJson($context.result.nextToken)
+}
+[/file]
+[/template]
+
+[template public PassingDataBetweenRoutes(st:State,dModel : Model) post(replaceAll('\n','').trim())]
+[for(reg: Region | st.ownedElement -> filter(Region))]
+  
+		[for(initialstate: Pseudostate | reg.ownedElement -> filter(Pseudostate))]
+		[if(initialstate.kind.toString() <> 'initial')]
+        [initialstate.name/]
+		[/if]
+		[/for]
+		[for(initialstate: Pseudostate | reg.ownedElement -> filter(Pseudostate))]
+		[if(initialstate.kind.toString() <> 'initial')]
+        [initialstate.name/]
+		[/if]
+		[/for]
+					
+		   [for(state: State | reg.ownedElement -> filter(State))]
+[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Input_Property').toString()<> 'invalid')]				
+						
+			[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Input_Property'))separator('\n')]
+			[if(ocl.oclAsType(Property).type.name.oclIsUndefined()<>true)]
+				@Input()
+				[ocl.oclAsType(Property).name/]:[ocl.oclAsType(Property).type.name/]
+			[elseif(ocl.oclAsType(Property).defaultValue.stringValue().oclIsUndefined()<>false)]
+				@Input()				 
+				set [ocl.oclAsType(Property).name/]([ocl.oclAsType(Property).name/])
+				this._[ocl.oclAsType(Property).name/]= [ocl.oclAsType(Property).name/];
+				if(this._[ocl.oclAsType(Property).name/])
+				{[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Operations').toString()<> 'invalid')]
+					[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Operations'))separator('\n')]
+					[if (ocl.oclAsType(Operation).name.oclIsUndefined()) <> true] 
+					this.[ocl.oclAsType(Operation).name/]();}[/if][/for][/if][/if][/for][/if]	
+			
+
+			[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Output_Property').toString()<> 'invalid')]				
+				
+				[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Output_Property'))separator('\n')]
+					[if(ocl.oclAsType(Property).type.name.equalsIgnoreCase('false'))]	
+						@Output() [ocl.oclAsType(Property).name/] = new EventEmitter<any>();
+					[elseif(ocl.oclAsType(Property).type.name.equalsIgnoreCase('true'))]	
+						@Output() [ocl.oclAsType(Property).name/]:[ocl.oclAsType(Property).type.name/] = new EventEmitter<any>();[/if]
+				[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'handler_event').toString()<> '')]
+				[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'handler_event'))separator('\n')]
+					[ocl.oclAsType(Operation).name/]
+					[for(p:Parameter|ocl.oclAsType(Operation).ownedParameter->filter(Parameter))]
+					[if(p.direction.toString() = 'in')]([p.name/]){ this.[state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Client'), 'Output_Property').oclAsType(Property).name/].emit([p.name/]); 
+					[/if][/for]
+				[/for]
+				[/if]	
+				[/for]
+			[/if]
+[/for]
+[/for]
+[/template]
+
+[template public StateVariables(state:State,dModel : Model) post(replaceAll('\n','').trim())]
+	[if(state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDD Profile::UI_Router'), 'Variables').toString().oclIsUndefined()<>true)]
+				[for (ocl:OclAny |state.getValue(state.getAppliedStereotype('ServerlessDDProfile::SDDProfile::UI_Router'), 'Variables'))separator('\n')]
+				[if (ocl.oclAsType(Property).isStatic.toString().equalsIgnoreCase('false'))]		
+				[if (ocl.oclAsType(Property).type.oclIsUndefined()) <> true]
+					[if(ocl.oclAsType(Property).defaultValue.stringValue().oclIsUndefined()<>false)]
+					 [ocl.oclAsType(Property).name/]:[ocl.oclAsType(Property).type.name/];
+					[elseif(ocl.oclAsType(Property).defaultValue.stringValue().oclIsUndefined()<>true)]
+					 [ocl.oclAsType(Property).name/]:[ocl.oclAsType(Property).type.name/]= [ocl.oclAsType(Property).defaultValue.stringValue()/];[/if]
+				[elseif (ocl.oclAsType(Property).type.oclIsUndefined()) <> false]
+					[if(ocl.oclAsType(Property).defaultValue.stringValue().oclIsUndefined()<>false)]
+					 [ocl.oclAsType(Property).name/];
+					[elseif(ocl.oclAsType(Property).defaultValue.stringValue().oclIsUndefined()<>true)]
+					 [ocl.oclAsType(Property).name/] = [ocl.oclAsType(Property).defaultValue.stringValue()/];[/if]
+				[/if]
+				[/if]
+				[/for]
+			[/if]
+[/template]

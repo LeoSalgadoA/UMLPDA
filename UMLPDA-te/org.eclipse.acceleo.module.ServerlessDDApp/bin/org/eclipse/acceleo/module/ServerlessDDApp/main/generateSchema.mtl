@@ -1,0 +1,94 @@
+[comment encoding = UTF-8 /]
+[module generateSchema('http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard', 'http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/uml2/5.0.0/Types','http://www.eclipse.org/emf/2002/Ecore')]
+
+[template public generateSchema(aModel : Model)]
+[comment @main/]
+
+[file ('Backend/schema.graphql', false, 'UTF-8')]
+
+type schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+[for (instancespec:InstanceSpecification | aModel.ownedElement->filter(InstanceSpecification))]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ObjectType'), 'Object_Fields').toString()<> 'invalid')]
+	type [instancespec.name/]{
+	[for(ocl:OclAny | instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ObjectType'), 'Object_Fields')) ]
+		
+		[for(p:Property|ocl.oclAsType(Property)->filter(Property))]
+			
+				
+				[if(p.getValue(p.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Arguments'), 'Arguments').toString()<>'invalid')]
+					[p.oclAsType(Property).name/]['('/][for(ocl:OclAny | p.getValue(p.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Arguments'), 'Arguments'))separator(',') ][ocl.oclAsType(Property).name/]:[ocl.oclAsType(Property).type.name/][/for][')'/]:[ocl.oclAsType(Property).type.name/]
+				[/if]
+
+				
+					[if(p.getValue(p.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Type_Modifier'), 'Select_TypeModifier').oclAsType(EnumerationLiteral).name.toString() <> 'invalid')]
+						[for(ocl:OclAny | p.getValue(p.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Type_Modifier'), 'Select_TypeModifier')) ]
+							[if(p.getValue(p.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Type_Modifier'), 'Select_TypeModifier').oclAsType(EnumerationLiteral).name.toString()='Required')]
+								[p.oclAsType(Property).name/]:[p.oclAsType(Property).type.name.concat('!')/]
+							[elseif(p.getValue(p.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Type_Modifier'), 'Select_TypeModifier').oclAsType(EnumerationLiteral).name.toString()='List')]
+								[p.oclAsType(Property).name/]:[ '[' /][p.oclAsType(Property).type.name/][ ']' /] 
+							[/if]
+						[/for]
+					[elseif(p.getValue(p.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Type_Modifier'), 'Select_TypeModifier').oclAsType(EnumerationLiteral).name.toString() = 'invalid')]
+						[if(p.getValue(p.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Arguments'), 'Arguments').toString()='invalid')]
+							[p.oclAsType(Property).name/]:[p.oclAsType(Property).type.name/]
+						[/if]
+					[/if]
+		[/for]
+	[/for]
+	}
+[/if]
+
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::RootType'), 'Operations').toString()<> 'invalid')]
+	type [instancespec.name/]{
+	[for(ocl:OclAny | instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::RootType'), 'Operations')) ]
+		[ocl.oclAsType(Operation).name/]([for (prop : Parameter | ocl.oclAsType(Operation).ownedParameter->filter(Parameter))separator(',')][if(prop.direction.toString()= 'in')][if(prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier').toString()='invalid')]	[prop.name/]:[prop.type.name/][elseif(prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier').toString()='Required')][for(ocl:OclAny | prop.getValue(prop.getAppliedStereotype('Profile::Type_Modifier'), 'Select_TypeModifier')) ][prop.name/]:[prop.type.name.concat('!')/][/for][/if][/if][/for]):[for (prop : Parameter | ocl.oclAsType(Operation).ownedParameter->filter(Parameter))][if(prop.direction.toString()= 'return')][if(prop.upperBound()= -1)][ '[' /][prop.name/][ ']' /] [elseif(prop.upperBound()<> -1)][prop.name/][/if][/if][/for]
+	[for (com : FunctionBehavior | ocl.oclAsType(Operation).method->filter(FunctionBehavior))]
+	@aws_subscribe(mutations:[ '[' /]"[com.name/]"[ ']' /])
+	[/for]
+	[/for]
+	}
+[/if]
+[/for]	
+[GenerateTypes()/]
+[/file]
+[/template]
+
+[template public GenerateTypes(tModel : Model)post(replaceAll('\n','').trim())]
+
+
+[for (instancespec:InstanceSpecification | tModel.ownedElement->filter(InstanceSpecification))]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::RootType'), 'Operations').toString()<> 'invalid')]
+
+[for(ocl:OclAny | instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::RootType'), 'Operations')) ]
+[if(instancespec.name = 'Mutation')]
+
+[for(prop : Parameter | ocl.oclAsType(Operation).ownedParameter->filter(Parameter)) ]
+
+[if(prop.direction.toString()= 'return')] 
+[if(prop.effect.toString()= 'create')]
+[file ('Frontend/types/'.concat(prop.name).concat('.ts'), false, 'UTF-8')]
+type [prop.name/] = {
+[prop.type.eAllContents(Property).name.concat(':string\n')/]
+};
+
+export default [prop.name/];
+[/file][/if]
+[/if][/for]
+[/if][/for]
+
+[/if]
+
+[/for]
+
+
+
+[/template]
+
+

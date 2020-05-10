@@ -1,0 +1,988 @@
+[comment encoding = UTF-8 /]
+[module generateUI('http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard', 'http://www.eclipse.org/uml2/5.0.0/UML','http://www.eclipse.org/emf/2002/Ecore', 'http://www.eclipse.org/uml2/5.0.0/Types')]
+[import org::eclipse::acceleo::module::ServerlessDDApp::main::generateSchema/]
+
+[template public generateUI(aModel : Model)]
+[comment @main/]
+
+[if(aModel.name.toString()<> 'schema')]
+[file ('Frontend/'.concat(aModel.name.concat('.html')), false, 'UTF-8')]
+
+[generateContainer()/]
+[generateGrid()/]
+[generateComponent()/]
+[generateAuthComponent()/]
+
+[/file]
+[elseif(aModel.name.toString()= 'schema')]
+[aModel.generateSchema()/]
+
+[/if]
+
+
+[/template]
+
+
+[template public generateContainer(aModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | aModel.ownedElement->filter(InstanceSpecification)) ]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'container_type').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')]
+	<div class ="container-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'container_type').oclAsType(EnumerationLiteral).name/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'border_radius').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'border_radius').toString()<>'invalid')]	[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'border_radius')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'margin').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'margin').toString()<>'invalid')]	m-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'margin')/][/if]
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'padding').toString().matches('0'))]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'padding').toString()<>'invalid')]	 p-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'padding')/][/if]	
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'margin_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'margin_bottom').toString()<>'invalid')]	 mb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'margin_bottom')/]	[/if]
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'margin_top').toString().matches('0'))] [''''/]	
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'margin_top').toString()<>'invalid')] mt-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'margin_top')/][/if]
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'display').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')][instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'display').oclAsType(EnumerationLiteral).name/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'padding_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'padding_bottom').toString()<>'invalid')] pb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'padding_bottom')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'layout').toString()<> 'invalid')][instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'layout')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'alignment').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'alignment').toString()<>'invalid')]align-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'alignment')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'text_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'text_color').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'text_color')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'background_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'background_color').toString()<>'invalid')]bg-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'background_color')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'border').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'border').toString()<> 'invalid')]border border-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Container'), 'border')/]	[/if]
+[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+[if(st.name ->includes('Container'))]
+	['">'/]
+[/if]
+[/for]
+[/for]
+[/template]
+
+[template public generateGrid(gModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[for (instancespec : InstanceSpecification | gModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+	[if((st.name ->includes('Grid')) and (instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'grid_id')->includes('1')))]
+		<div class = "row">
+[/if]
+[/for]
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'grid_option').oclAsType(EnumerationLiteral).name.toString()= 'Small')]
+	<div class ="col-sm-
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'grid_option').oclAsType(EnumerationLiteral).name.toString()= 'Medium')]
+	<div class = "col-md-
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'grid_option').oclAsType(EnumerationLiteral).name.toString()= 'Large')]
+	<div class = "col-lg-
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'grid_option').oclAsType(EnumerationLiteral).name.toString()= 'ExtraSmall')]
+	<div class ="col-
+		[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'grid_option').oclAsType(EnumerationLiteral).name.toString()= 'EqualWidth')]
+	<div class ="col"
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'grid_option').oclAsType(EnumerationLiteral).name.toString()= 'ExtraLarge')]
+	<div class = "col-xl-[/if][if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'column_width').toString()<>'invalid')][instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'column_width')/][/if]
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'border_radius').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'border_radius').toString()<>'invalid')]	[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'border_radius')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'margin').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'margin').toString()<>'invalid')]	m-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'margin')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'padding').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'padding').toString()<>'invalid')]	 p-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'padding')/][/if]	
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'margin_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'margin_bottom').toString()<>'invalid')]	 mb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'margin_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'margin_top').toString().matches('0'))] [''''/]	
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'margin_top').toString()<>'invalid')] mt-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'margin_top')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'display').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')][instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'display').oclAsType(EnumerationLiteral).name/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'padding_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'padding_bottom').toString()<>'invalid')] pb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'padding_bottom')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'alignment').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'alignment').toString()<>'invalid')]align-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'alignment')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'text_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'text_color').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'text_color')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'background_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'background_color').toString()<>'invalid')]bg-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'background_color')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'border').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'border').toString()<> 'invalid')]border-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Grid'), 'border')/]	[/if]
+	[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+	[if(st.name ->includes('Grid'))]
+		['">'/]	
+	[/if]	
+[/for]
+
+[/for]
+	
+[/template]
+
+
+
+[template public generateComponent(cModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | cModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+[if(st.name -> includes('Elements'))]
+<div class ="
+[/if]
+[/for]
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'border_radius').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'border_radius').toString()<>'invalid')]	[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'border_radius')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'margin').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'margin').toString()<>'invalid')]	m-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'margin')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'padding').toString().matches('0'))]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'padding').toString()<>'invalid')]	 p-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'padding')/][/if]	
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'margin_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'margin_bottom').toString()<>'invalid')]	 mb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'margin_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'margin_top').toString().matches('0'))] [''''/]	
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'margin_top').toString()<>'invalid')] mt-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'margin_top')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'display').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')]d-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'display').oclAsType(EnumerationLiteral).name/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'padding_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'padding_bottom').toString()<>'invalid')] pb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'padding_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'alignment').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'alignment').toString()<>'invalid')]align-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'alignment')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'text_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'text_color').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'text_color')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'background_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'background_color').toString()<>'invalid')]bg-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'background_color')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'border').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'border').toString()<> 'invalid')]border-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Elements'), 'border')/]	[/if]
+	[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+	[if(st.name -> includes('Elements'))]
+	['">'/]	
+	[generateText(cModel)/]
+[/if]
+[/for]		
+[/for]
+	[generateJumbotron(cModel)/]
+	[generateForm(cModel)/]
+	[generateList(cModel)/]	
+	[generateCard(cModel)/]
+	[generateDataOnRouting(cModel)/]	
+	
+[/template]
+
+[template public generateText(tModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[for (instancespec : InstanceSpecification | tModel.ownedElement->filter(InstanceSpecification)) separator('\t')]
+[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+[if(st.name -> includes('Text'))]
+<div class ="
+[/if]
+[/for]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'border_radius').toString().matches('0'))][''''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'border_radius').toString()<>'invalid')]	[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'border_radius')/][/if]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'margin').toString().matches('0'))][''''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'margin').toString()<>'invalid')]	m-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'margin')/][/if]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'padding').toString().matches('0'))][''''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'padding').toString()<>'invalid')]	 p-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'padding')/][/if]	
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'margin_bottom').toString().matches('0'))][''''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'margin_bottom').toString()<>'invalid')]	 mb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'margin_bottom')/]	[/if]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'margin_top').toString().matches('0'))] [''''/]	
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'margin_top').toString()<>'invalid')] mt-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'margin_top')/][/if]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'display').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')]  d-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'display').oclAsType(EnumerationLiteral).name/]	[/if]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'padding_bottom').toString().matches('0'))][''''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'padding_bottom').toString()<>'invalid')] pb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'padding_bottom')/]	[/if]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'alignment').toString().matches('0'))][''''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'alignment').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'alignment')/][/if]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'text_color').toString().matches('0'))][''''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'text_color').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'text_color')/][/if]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'background_color').toString().matches('0'))][''''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'background_color').toString()<>'invalid')]bg-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'background_color')/]	[/if]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'border').toString().matches('0'))][''''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'border').toString()<> 'invalid')]border border-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'border')/]	[/if]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'text_weight').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')] font-weight-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'text_weight').oclAsType(EnumerationLiteral).name/]	[/if]
+[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+[if(st.name -> includes('Text'))]
+['">'/]
+[generateheading(tModel)/]
+	</div>
+[/if]
+[/for]
+
+	
+[/for]
+
+
+[/template]
+
+[template public generateheading(tModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | tModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype|instancespec.getAppliedStereotypes())]
+	[if(st.name ->includes('Text'))]
+		
+		[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'text_name').toString()<> '0')]
+			<[instancespec.name/] [generateCardTitle(instancespec)/][generateBadge(instancespec)/]>[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Text'), 'text_name')/]</[instancespec.name/]>
+		[/if]
+		[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'type').oclAsType(EnumerationLiteral).name = 'interpolation')]
+			<[instancespec.name/][generateCardTitle(instancespec)/][generateBadge(instancespec)/][generateFloatedContent(instancespec)/]>[generateInterpolationBinding(instancespec)/]</[instancespec.name/]> 
+		[/if]		
+		
+	[/if]
+	
+[/for]
+[/for]
+[/template]
+
+[template public generateForm( fModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[for (instancespec : InstanceSpecification |fModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+[if(st.name -> includes('FormControl'))]
+<form>
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::FormControl'), 'form_layout').toString() <> 'invalid')]
+
+[generateInput(fModel)/]
+[generateTextArea(fModel)/]		
+[generateButton(fModel)/]
+
+[/if]
+</form>
+</div>
+</div>
+[elseif(st.name->includes('InputGroup'))]
+<div class = "input-group">
+[generateInput(fModel)/]
+[generateButton(fModel)/]
+[/if]
+[/for]
+[/for]
+
+[/template]
+
+[template public generateInput( iModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+			
+[for (instancespec : InstanceSpecification | iModel.ownedElement->filter(InstanceSpecification))]
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'label_id').toString().matches('0'))][''/][/if]
+			
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'label_id').toString()<> 'invalid')]
+			[generateFormLayoutStyle(iModel)/]			
+			<label htmlFor = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'label_id')/]">[/if]
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'label_text').toString().matches('0'))][''/][/if]
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'label_text').toString()<> 'invalid')]
+			[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'label_text')/]['</label>'/][/if]
+		
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'type').toString()<> 'invalid')]
+			<input type = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'type')/]"[/if]
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'form_layout').toString() <> 'invalid')]
+			class = "form-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'form_layout').oclAsType(EnumerationLiteral).name/] no-focus"[/if]
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'placeholder_value').toString().matches('0'))] [''''/]
+			[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'placeholder_value').toString()<> 'invalid')]
+			required placeholder = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'placeholder_value')/]"[/if]
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'input_name').toString()<> 'invalid')]
+			name = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'input_name')/]"[/if]
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'input_name').toString()<> 'invalid')]
+			['[(ngModel)]'/] = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Input'), 'input_name')/]"['/>'/]</div>[/if]
+
+		[/for]
+
+[/template]
+
+[template public generateTextArea( tModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[for (instancespec : InstanceSpecification | tModel.ownedElement->filter(InstanceSpecification))]
+
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'textarea_label_id').toString()<> 'invalid')]
+			[generateFormLayoutStyle(tModel)/]
+			<label htmlFor = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'textarea_label_id')/]">[/if]
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'textarea_label_text').toString()<> 'invalid')]
+			[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'textarea_label_text')/]['</label>'/][/if]
+		
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'textarea_id').toString()<> 'invalid')]
+			<textarea name = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'textarea_id')/]"[/if]
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'form_layout').toString() <> 'invalid')]
+			class = "form-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'form_layout').oclAsType(EnumerationLiteral).name/] no-focus"[/if]
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'rows_no').toString()<> 'invalid')]
+			rows = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'rows_no')/]"[/if]
+			[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'textarea_id').toString()<> 'invalid')]
+			['[(ngModel)]'/] = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::TextArea'), 'textarea_id')/]"['/>'/][/if]
+	
+[/for]</div>
+
+[/template]
+
+[template public generateFormLayoutStyle(cModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | cModel.ownedElement->filter(InstanceSpecification))]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::FormControl'), 'form_layout').toString()<> 'invalid')]
+	<div class = "form-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::FormControl'), 'form_layout').oclAsType(EnumerationLiteral).name/]['">'/]
+	[/if]	
+[/for]
+[/template]
+
+[template public generateButton(bModel : Model) post(replaceAll('\n','').trim())]
+
+[for (instancespec : InstanceSpecification | bModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+[if(st.name -> includes('Button'))]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Button'), 'theme').toString()<> 'invalid')]
+<button class = "btn btn-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Button'), 'theme').oclAsType(EnumerationLiteral).name/]"
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Button'), 'button_placement').toString()<> 'invalid')][''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Button'), 'button_placement').toString()<> 'invalid')]
+	"[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Button'), 'button_placement')/]"[/if]
+	[generateEventBinding(instancespec)/]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Button'), 'button_type').toString()<> 'invalid')]
+	type = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Button'), 'button_type')/]"['>'/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Button'), 'button_text').toString()<> 'invalid')]
+	[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Button'), 'button_text')/]['</button>'/][/if]
+
+[/if]
+[/if]
+[/for]
+[/for]
+
+[/template]
+
+[template public generateCustomElement(instancespec : InstanceSpecification) post(replaceAll('\n','').trim())]
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::CustomElement'), 'name').toString()<> 'invalid')]
+		[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::CustomElement'), 'name')/]
+	
+	[/if]
+
+
+[/template]
+
+[template public generateComponentPropertyBinding(pModel : Model) post(replaceAll('\n','').trim())]
+
+[for (instancespec : InstanceSpecification | pModel.ownedElement->filter(InstanceSpecification))]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'type').toString()<> 'invalid')]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'type').oclAsType(EnumerationLiteral).name = 'property')]
+		['<'/][generateCustomElement(instancespec)/]
+		[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'input_property').toString() <> 'invalid')]	
+		[for(ocl:OclAny | instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'),'input_property'))]
+			[for(p:Property | ocl.oclAsType(Property)->filter(Property))]	
+		
+			['['/][p.oclAsType(Property).name/][']'/] = "[p.oclAsType(Property).defaultValue.stringValue()/]"
+			[/for]
+		[/for][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'event').toString() <> '')]
+		[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'event')/]=
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'event_handler').toString() <> 'invalid')]	
+		[for(ocl:OclAny | instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'),'event_handler'))]
+			"[ocl.oclAsType(Operation).name/][for(prop:Parameter | ocl.oclAsType(Operation).ownedParameter->filter(Parameter))][if(prop.direction.toString()= 'in')]($[prop.name/])"[/if]
+			[/for]
+		[/for]
+	[/if]
+	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::CustomElement'), 'url').toString()<> '0')]
+		href = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::CustomElement'), 'url')/]"
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::CustomElement'), 'url').toString()->includes('0'))][''/][/if]
+	
+		
+ ['>'/]['</'/][generateCustomElement(instancespec)/]['>'/]
+[/if]
+
+[/if]
+[/for]
+[/template]
+
+[template public generateEventBinding(instancespec:InstanceSpecification) post(replaceAll('\n','').trim())]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'event_handler').toString()<>'invalid')]
+(click) = [for(ocl:OclAny | instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'),'event_handler')) ]
+			"[ocl.oclAsType(Operation).name/]([for(prop:Parameter | ocl.oclAsType(Operation).ownedParameter->filter(Parameter))separator(',')][if(prop.direction.toString()= 'in')][prop.name/][/if][/for])"
+			[/for][/if]
+
+[/template]
+
+[template public generateCard( cModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[for (instancespec : InstanceSpecification | cModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype|instancespec.getAppliedStereotypes())]
+[if(st.name ->includes('Card'))]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').toString()= '')]
+<div class = "card	
+		[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width').toString().matches('0'))] [''/]
+		[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width').toString()<> '')]
+		 w-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width')/][/if]
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius').toString()<>'invalid')]	border [instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin').toString()<>'invalid')]	m-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding').toString().matches('0'))]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding').toString()<>'invalid')]	 p-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding')/][/if]	
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom').toString()<>'invalid')]	 mb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top').toString().matches('0'))] [''''/]	
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top').toString()<>'invalid')] mt-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'display').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')]d-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'display').oclAsType(EnumerationLiteral).name/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom').toString()<>'invalid')] pb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color').toString()<>'invalid')]bg-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border').toString()<> 'invalid')]border-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position').toString()<> '')]float-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position')/]	[/if]
+
+	[generateFloatedContent(instancespec)/]
+	
+	['">'/]	
+
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name= 'title')]
+	[generateCardBody(cModel)/]	
+	[generateCardImage(cModel)/]
+	
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name= 'subtitle')]
+	[generateCardSubTitle(cModel)/]
+	[generateCardTitle(instancespec)/]
+
+[/if][/if][/for]
+	
+[/for]
+
+[generateForDirective(cModel)/]
+
+[/template]
+
+[template public generateForDirective( dModel : Model)  post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | dModel.ownedElement->filter(InstanceSpecification))]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DOM_Manipulation'), 'local_variable').toString()<> 'invalid')]	
+		[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DOM_Manipulation'), 'collection_property').toString().matches('0'))][''/]
+		[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DOM_Manipulation'), 'collection_property').toString()<> 'invalid')]
+		<div ngFor* = "let [instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DOM_Manipulation'), 'local_variable')/] of [instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DOM_Manipulation'), 'collection_property')/]">
+		[generateListStates(dModel)/]
+		<div [generateEventBinding(instancespec)/]>
+		[generateCardHeader(dModel)/]			
+		[generateCardBody(dModel)/]
+		[generateCardText(dModel)/]
+		[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'input_property').oclIsUndefined()<>true)]
+		[generateCardTextNoIcon(dModel)/][/if]
+		[generateCardFooter(dModel)/]		
+		[/if]		
+[/if]
+[/for]		
+[/template]
+
+[template public generateIfDirective( dModel : Model)  post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | dModel.ownedElement->filter(InstanceSpecification))]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'temp_variable').toString()<> 'invalid')]	
+		<div *ngIf="[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'temp_variable')/];">
+			
+[/if]
+[/for]		
+[/template]
+
+
+[template public generateCardHeader( nModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | nModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype|instancespec.getAppliedStereotypes())]
+ [if(st.name -> includes('Card'))]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').toString()<> 'invalid')]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name= 'header')]
+		<div class = "card-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name/]">
+	[generateheading(nModel)/] </div>
+	[/if]
+[/if]	
+[/if]
+[/for]
+[/for]
+[/template]
+
+[template public generateCardBody( nModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | nModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype|instancespec.getAppliedStereotypes())]
+ [if(st.name -> includes('Card'))]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name= 'body')]
+		<div class = "card-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name/]
+		[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width').toString().matches('0'))] [''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width').toString()<> '')] w-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width')/][/if]
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius').toString()<>'invalid')]	border [instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin').toString()<>'invalid')]	m-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding').toString().matches('0'))]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding').toString()<>'invalid')]	 p-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding')/][/if]	
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom').toString()<>'invalid')]	 mb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top').toString().matches('0'))] [''''/]	
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top').toString()<>'invalid')] mt-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'display').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')]d-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'display').oclAsType(EnumerationLiteral).name/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom').toString()<>'invalid')] pb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color').toString()<>'invalid')]bg-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border').toString()<> 'invalid')]border-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position').toString()<> '')]float-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position')/]	[/if]
+	['">'/]
+		[generateheading(nModel)/] 
+		
+	[/if]
+[/if]	
+[/for]
+[/for]
+[/template]
+
+
+[template public generateCardText( nModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | nModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype|instancespec.getAppliedStereotypes())]
+ [if(st.name -> includes('Card'))]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').toString()<> 'invalid')]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name= 'text')]
+		<div class = "card-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name/]"
+		[generateEventBinding(instancespec)/]> 
+		
+		[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'icon_text').toString().equalsIgnoreCase('true'))]
+			<div>[generateIcon(nModel)/]</div>[/if]
+			[generateCardTextonIcon(nModel)/]
+[/if]
+	[/if]
+
+[/if]		
+[/for]
+[/for]
+
+
+[/template]
+
+[template public generateCardTextonIcon( nModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | nModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype|instancespec.getAppliedStereotypes())]
+[if(st.name->includes('DataBinding'))]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name').toString()='invalid')]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'property_name').toString()->includes('1'))]
+	[generateInterpolationBinding(instancespec)/][/if]
+
+[/if]
+[/if]
+[/for]
+[/for]
+[/template]
+
+[template public generateCardTextNoIcon( nModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | nModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype|instancespec.getAppliedStereotypes())]
+[if(st.name->includes('DataBinding'))]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name').toString()='invalid')]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'property_name').toString()->includes('0'))]
+			[generateInterpolationBinding(instancespec)/]
+
+[/if]
+	
+[/if]
+[/if]
+[/for]
+[/for]
+[/template]
+
+[template public generateCardFooter( fModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | fModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype|instancespec.getAppliedStereotypes())]
+ [if(st.name -> includes('Card'))]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').toString()<> 'invalid')]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name= 'footer')]
+		<div class = "card-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name/] text-muted"> 
+		[generateButton(fModel)/]
+		<div>[generateIcon(fModel)/]</div>
+		[generateEventBinding(instancespec)/]
+	</div>
+		[/if]
+	
+	[/if]	
+
+[/if]
+[/for]
+[/for]
+
+[/template]
+
+
+[template public generateCardTitle( instancespec : InstanceSpecification) post(replaceAll('\n','').trim())]
+[comment @main/]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').toString()<> 'invalid')]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name= 'title')]
+		 class = "card-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name/]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width').toString().matches('0'))] [''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width').toString()<> '')] w-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width')/][/if]
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius').toString()<>'invalid')]	border [instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin').toString()<>'invalid')]	m-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding').toString().matches('0'))]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding').toString()<>'invalid')]	 p-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding')/][/if]	
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom').toString()<>'invalid')]	 mb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top').toString().matches('0'))] [''''/]	
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top').toString()<>'invalid')] mt-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'display').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')]d-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'display').oclAsType(EnumerationLiteral).name/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom').toString()<>'invalid')] pb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color').toString()<>'invalid')]bg-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border').toString()<> 'invalid')]border-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position').toString()<> '')]float-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position')/]	[/if]
+	['"'/]
+[/if]
+
+[/if]	
+
+[/template]
+
+
+[template public generateCardSubTitle( smodel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | smodel.ownedElement->filter(InstanceSpecification))]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').toString()<> 'invalid')]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name= 'subtitle')]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position').toString()<> '')]
+	<div class = 'float-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position')/]'	[/if]
+		<small class = "card-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_type').oclAsType(EnumerationLiteral).name/]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width').toString().matches('0'))] [''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width').toString()<> '')] w-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'card_width')/][/if]
+
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius').toString()<>'invalid')]	border [instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border_radius')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin').toString()<>'invalid')]	m-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding').toString().matches('0'))]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding').toString()<>'invalid')]	 p-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding')/][/if]	
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom').toString()<>'invalid')]	 mb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top').toString().matches('0'))] [''''/]	
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top').toString()<>'invalid')] mt-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'margin_top')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'display').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')]d-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'display').oclAsType(EnumerationLiteral).name/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom').toString()<>'invalid')] pb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'padding_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'alignment')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'text_color')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color').toString()<>'invalid')]bg-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'background_color')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border').toString()<> 'invalid')]border-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'border')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position').toString()<> '')]float-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'content_position')/]	[/if]
+['">'/]
+	[generateInterpolationBinding(instancespec)/]</small>
+	[generateIcon(smodel)/]
+[/if]
+[/if]	
+[/for]
+
+[/template]
+
+
+[template public generateInterpolationBinding( instancespec : InstanceSpecification) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'type').oclAsType(EnumerationLiteral).name = 'interpolation')]
+<div>	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DOM_Manipulation'), 'local_variable').toString().matches('0'))][''/]
+		[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DOM_Manipulation'), 'local_variable').toString()<> 'invalid')]
+			{{[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DOM_Manipulation'), 'local_variable')/]?.[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'collection_variable').toString().matches('0'))][''/]
+		[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'collection_variable').toString()<> 'invalid')]
+			{{[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'collection_variable')/]?.[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'temp_variable').toString().matches('0'))][''/]
+		[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'temp_variable').toString()<> 'invalid')]
+			{{[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'temp_variable')/]?.[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name').toString()= 'calendar')]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'property_values').toString().matches('date'))]
+	[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'property_values')/] | date: 'MMM d, y'}}
+	[/if][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name').toString()= 'clock')]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'property_values').toString().matches('date'))]
+	[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'property_values')/] | date: 'h:mm a'}}
+	[/if][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'property_values').toString().matches('0'))][''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'property_values').toString().matches('createdAt'))]
+	[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'property_values')/] | date: 'MMM d, y, h:mm:ss a'}}	
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'property_values').toString()<> 'date')]
+			[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'property_values')/]}}
+	[/if]
+	
+
+	</div>
+[/if]
+
+[/template]
+
+[template public generateIcon( iModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | iModel.ownedElement->filter(InstanceSpecification))]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name').toString()<> 'invalid')]
+		[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name').toString() ->excludesAll(Set{'chatbubbles', 'checkmark'}))]
+			 <i class ="ion-ios-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name')/]
+		 [if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'event_handler').toString()<> 'invalid')]
+			[for(ocl:OclAny | instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'),'event_handler'))]
+			 [if(ocl.oclAsType(Operation).oclIsUndefined()<>true)][generateEventBinding(instancespec)/][/if][/for][/if]"> </i>
+			[generateInterpolationBinding(instancespec)/] 
+
+		[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name').toString()= 'chatbubbles')]
+			 <i class ="ion-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name')/]
+		[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'event_handler').toString()<> 'invalid')]
+			[for(ocl:OclAny | instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'),'event_handler'))]
+			  [if(ocl.oclAsType(Operation).oclIsUndefined()<>true)][generateEventBinding(instancespec)/][/if][/for][/if]"> </i>
+			[generateInterpolationBinding(instancespec)/]
+
+		[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name').toString()= 'checkmark')]
+			 <i class ="ion-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name')/] [generateFloatedContent(instancespec)/]"> </i>
+			[generateInterpolationBinding(instancespec)/]
+			
+		[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Icon'), 'icon_name').toString().matches('0'))]
+			<div> [generateInterpolationBinding(instancespec)/]</div>
+		[/if]
+	[/if]
+[/for]
+[/template]
+
+[template public generateDataOnRouting(aModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[for (instancespec : InstanceSpecification | aModel.ownedElement->filter(InstanceSpecification))]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'collection_variable').toString().matches('0'))][''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::DataBinding'), 'collection_variable').toString()<> 'invalid')]
+	[generateInterpolationBinding(instancespec)/]
+	
+[/if]
+[/for]
+[generateComponentPropertyBinding(aModel)/]
+
+[/template]
+
+[template public generateJumbotron(aModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[for (instancespec : InstanceSpecification | aModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+[if(st.name -> includes('Jumbotron'))]
+<div class = "[st.name.toLowerCase()/]">
+[generateText(aModel)/]
+[generateButton(aModel)/]
+</div>
+[/if]
+[/for]
+[/for]
+
+[/template]
+
+[template public generateAuthComponent(aModel : Model)]
+[comment @main/]
+[for (instancespec : InstanceSpecification | aModel.ownedElement->filter(InstanceSpecification))]
+	[if(aModel.name.toString()= 'auth.component')]
+		[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+			[if(st.name ->includes('CustomElement'))]
+				['<'/][generateCustomElement(instancespec)/]['>'/]['</'/][generateCustomElement(instancespec)/]['>'/]
+			[/if]
+		[/for]
+	[/if]
+[/for]
+[/template]
+
+[template public generateCardImage( iModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | iModel.ownedElement->filter(InstanceSpecification))]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'image_position').toString().matches('0'))] [''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'image_position').toString()<>'invalid')]
+<img class = "card-img-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'image_position')/]"
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'image_path').toString().matches('0'))] [''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'image_path').toString()<> 'invalid')]
+src = "[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'image_path')/]"
+[/if]	
+[/if]
+[/for]
+[generateButton(iModel)/]
+[/template]
+
+[template public generateBadge(  instancespec : InstanceSpecification) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'shape').toString().matches('0'))] [''/]
+[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'shape').toString()<>'invalid')]
+  class = "badge badge-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'shape')/]"
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'appearance').toString() <> 'invalid')]	
+		[for(ocl:OclAny | instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'),'appearance'))]
+			[for(p:Property | ocl.oclAsType(Property)->filter(Property))]		
+			['['/]class.badge-[p.oclAsType(Property).name/][']'/] = "[p.oclAsType(Property).defaultValue.stringValue()/]"
+			[/for]
+		[/for][/if]
+[/if]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'border_radius').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'border_radius').toString()<>'invalid')]	border [instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'border_radius')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'margin').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'margin').toString()<>'invalid')]	m-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'margin')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'padding').toString().matches('0'))]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'padding').toString()<>'invalid')]	 p-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'padding')/][/if]	
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'margin_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'margin_bottom').toString()<>'invalid')]	 mb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'margin_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'margin_top').toString().matches('0'))] [''''/]	
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'margin_top').toString()<>'invalid')] mt-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'margin_top')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'display').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')]d-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'display').oclAsType(EnumerationLiteral).name/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'padding_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'padding_bottom').toString()<>'invalid')] pb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'padding_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'alignment').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'alignment').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'alignment')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'text_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'text_color').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'text_color')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'background_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'background_color').toString()<>'invalid')]bg-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'background_color')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'border').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'border').toString()<> 'invalid')]border-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Badge'), 'border')/]	[/if]
+	
+
+
+[/template]
+
+
+[template public generateList( bModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[for (instancespec : InstanceSpecification | bModel.ownedElement->filter(InstanceSpecification))]
+[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+[if(st.name ->includes('ListGroup'))]
+	[generateheading(bModel)/]
+	<div class ="list-group 
+[/if]
+[/for]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'border_radius').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'border_radius').toString()<>'invalid')]	[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'border_radius')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'margin').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'margin').toString()<>'invalid')]	m-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'margin')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'padding').toString().matches('0'))]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'padding').toString()<>'invalid')]	 p-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'padding')/][/if]	
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'margin_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'margin_bottom').toString()<>'invalid')]	 mb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'margin_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'margin_top').toString().matches('0'))] [''''/]	
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'margin_top').toString()<>'invalid')] mt-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'margin_top')/][/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'display').oclAsType(EnumerationLiteral).name.toString()<> 'invalid')]d-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'display').oclAsType(EnumerationLiteral).name/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'padding_bottom').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'padding_bottom').toString()<>'invalid')] pb-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'padding_bottom')/]	[/if]
+	
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'alignment').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'alignment').toString()<>'invalid')]align-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'alignment')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'text_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'text_color').toString()<>'invalid')]text-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'text_color')/][/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'background_color').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'background_color').toString()<>'invalid')]bg-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'background_color')/]	[/if]
+	[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'border').toString().matches('0'))][''''/]
+	[elseif(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'border').toString()<> 'invalid')]border-[instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'border')/]	[/if]
+
+[for(st:Stereotype | instancespec.getAppliedStereotypes())]
+[if(st.name ->includes('ListGroup'))]
+	['">'/]
+[/if]
+[/for]
+[/for]
+
+
+[/template]
+
+[template public generateListStates( dModel : Model) post(replaceAll('\n','').trim())]
+[comment @main/]
+[for (instancespec : InstanceSpecification | dModel.ownedElement->filter(InstanceSpecification))]
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'), 'itemstates').toString() <> 'invalid')]	
+		[for(ocl:OclAny | instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::ListGroup'),'itemstates'))]
+			[for(p:Property | ocl.oclAsType(Property)->filter(Property))]		
+			['['/]class.[p.oclAsType(Property).name/][']'/] = "[p.oclAsType(Property).defaultValue.stringValue()/]"
+			[/for]
+		[/for]
+[/if][/for]
+[/template]
+
+[template public generateFloatedContent( instancespec : InstanceSpecification) post(replaceAll('\n','').trim())]
+[comment @main/]
+
+[if(instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'), 'floated_content').toString() <> 'invalid')]	
+		[for(ocl:OclAny | instancespec.getValue(instancespec.getAppliedStereotype('ServerlessDDProfile::SDDProfile::Card'),'floated_content'))]
+			[for(p:Property | ocl.oclAsType(Property)->filter(Property))]		
+			['['/]class.[p.oclAsType(Property).name/][']'/] = "[p.oclAsType(Property).defaultValue.stringValue()/]"
+			[/for]
+		[/for]
+	[/if]
+
+[/template]

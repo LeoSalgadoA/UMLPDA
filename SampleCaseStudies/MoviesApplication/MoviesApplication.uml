@@ -1,0 +1,1392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SDDProfile="http://ServerlessDDProfile/schemas/SDDProfile/_3m2JYGtaEemFztDUFtgMxA/164" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://ServerlessDDProfile/schemas/SDDProfile/_3m2JYGtaEemFztDUFtgMxA/164 ../ServerlessDDProfile/ServerlessDDProfile.profile.uml#_9qQdUGtaEemFztDUFtgMxA">
+  <uml:Model xmi:id="_nCsLYF00EemImYeM5hMuZQ" name="MoviesApplication">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_nSx10F00EemImYeM5hMuZQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:StateMachine" xmi:id="_nGaNwF00EemImYeM5hMuZQ" name="MoviesApp">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cmhhEF49EemImYeM5hMuZQ" name="newMovie1" type="_LjhuQF05EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_t4XcUF49EemImYeM5hMuZQ" name="appsync" type="_tfxWIF49EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__N1TUF49EemImYeM5hMuZQ" name="_router" type="_-_-dgF49EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_SRu1sF54EemImYeM5hMuZQ" name="id" type="_6FZnUF00EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_SRu1sV54EemImYeM5hMuZQ" value="id"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_SRu1sl54EemImYeM5hMuZQ" name="movie" isStatic="true" type="_LjhuQF05EemImYeM5hMuZQ" subsettedProperty="_SRu1sF54EemImYeM5hMuZQ _E9jVRl04EemImYeM5hMuZQ _E9jVQl04EemImYeM5hMuZQ _E9jVRF04EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ _E9jVQV04EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_SRu1s154EemImYeM5hMuZQ" name="date" isStatic="true">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_SRu1tF54EemImYeM5hMuZQ" value="`${new Date().toISOString()}`"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FFIcEF55EemImYeM5hMuZQ" name="newMovie" type="_LjhuQF05EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_TwjPUF-EEemDkbkV0eWFsg" value="this.newMovie=movie"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FFIcEV55EemImYeM5hMuZQ" name="session"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FFSNEF55EemImYeM5hMuZQ" name="client" type="_2yfc4F54EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_0RWuIF5-EemImYeM5hMuZQ" name="signedIn" type="_7C80sF00EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_DWoEIF5_EemImYeM5hMuZQ" name="user" type="_-1gpYF5-EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_DWoEIV5_EemImYeM5hMuZQ" name="greeting" type="_6FZnUF00EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8IhpQF5_EemImYeM5hMuZQ" name="limit" type="_5NgWAF00EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8IhpQV5_EemImYeM5hMuZQ" name="nextToken" type="_6FZnUF00EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_rMdiAF6FEemImYeM5hMuZQ" name="amplifyService" type="_q06ksF6FEemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_egcvgF7fEemImYeM5hMuZQ" name="movie"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_egcvgV7fEemImYeM5hMuZQ" name="all_movies" type="_LjhuQF05EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-xU14F7fEemImYeM5hMuZQ" name="onEventClick"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_p5Z54F7hEemImYeM5hMuZQ" name="movie1" isStatic="true" type="_LjhuQF05EemImYeM5hMuZQ" subsettedProperty="_KZiK8F7nEemImYeM5hMuZQ _KZr78l7nEemImYeM5hMuZQ _KZiK9F7nEemImYeM5hMuZQ _KZr78F7nEemImYeM5hMuZQ _KZiK8l7nEemImYeM5hMuZQ _bNtSwF7nEemImYeM5hMuZQ _bNtSwl7nEemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KZiK8F7nEemImYeM5hMuZQ" name="id">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_KZiK8V7nEemImYeM5hMuZQ" value="movie.id"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KZiK8l7nEemImYeM5hMuZQ" name="author" type="_6FZnUF00EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_KZiK817nEemImYeM5hMuZQ" value="movie.author"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KZiK9F7nEemImYeM5hMuZQ" name="genre" type="_6FZnUF00EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_KZiK9V7nEemImYeM5hMuZQ" value="movie.genre"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KZr78F7nEemImYeM5hMuZQ" name="director" type="_6FZnUF00EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_KZr78V7nEemImYeM5hMuZQ" value="movie.director"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KZr78l7nEemImYeM5hMuZQ" name="title" type="_6FZnUF00EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_KZr7817nEemImYeM5hMuZQ" value="movie.title"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bNtSwF7nEemImYeM5hMuZQ" name="createdAt" type="_6FZnUF00EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_bNtSwV7nEemImYeM5hMuZQ" value="movie.createdAt"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bNtSwl7nEemImYeM5hMuZQ" name="likes" type="_5NgWAF00EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_bNtSw17nEemImYeM5hMuZQ" value="movie.likes+1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_SZsqAF7oEemImYeM5hMuZQ" name="movieById" type="_-1gpYF5-EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_BUwQYF7qEemImYeM5hMuZQ" name="newReview" type="_8k7ykF05EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_BUwQYV7qEemImYeM5hMuZQ" name="review"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_4rYKUF7qEemImYeM5hMuZQ" name="movieID" type="_-1gpYF5-EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_AbPNMF-UEemDkbkV0eWFsg" value=" "/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_eDA5sF7sEemImYeM5hMuZQ" name="id" isStatic="true">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_eDA5sV7sEemImYeM5hMuZQ" value="`${new Date().toISOString()}_${uuid()}`"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9-qhgF7tEemImYeM5hMuZQ" name="all_reviews" type="_LjhuQF05EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9esZoF89EemImYeM5hMuZQ" name="movieID" type="_6FZnUF00EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_XqZ80GqoEemnVICEQtCLkA" value="this.movieID"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9e1jkF89EemImYeM5hMuZQ" name="Id" type="_6FZnUF00EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_UCQxcGqoEemnVICEQtCLkA" value="id"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_soYpMF9QEemDkbkV0eWFsg" name="rating" type="_6FZnUF00EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_RDfTMGqoEemnVICEQtCLkA" value="this.rating"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_DOJVIF9REemDkbkV0eWFsg" name="likes" type="_8N1dEF7tEemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wZhRIF9TEemDkbkV0eWFsg" name="limit" type="_6FZnUF00EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_BiMIoF9cEemDkbkV0eWFsg" name="items" type="_LjhuQF05EemImYeM5hMuZQ" subsettedProperty="_E9jVQF04EemImYeM5hMuZQ _E9jVRl04EemImYeM5hMuZQ _E9jVQl04EemImYeM5hMuZQ _E9jVRF04EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ _E9jVQV04EemImYeM5hMuZQ _Rh3KYF04EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qCbkYGqlEemnVICEQtCLkA" name="no_movie">
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_qCbkYWqlEemnVICEQtCLkA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_dKRJsGqmEemnVICEQtCLkA" name="id">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_dKRJsWqmEemnVICEQtCLkA" value="this._route.snapshot.params[ 'id']"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_YT_FUGqoEemnVICEQtCLkA" name="review" isStatic="true" type="_8k7ykF05EemImYeM5hMuZQ" subsettedProperty="_9esZoF89EemImYeM5hMuZQ _9e1jkF89EemImYeM5hMuZQ _soYpMF9QEemDkbkV0eWFsg _jriQE105EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_udONUGqoEemnVICEQtCLkA" name="subscription">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_udONUWqoEemnVICEQtCLkA" value="() => void"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_iFUsEF49EemImYeM5hMuZQ" name="ngOnInit"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_K7CE0F4_EemImYeM5hMuZQ" name="onAdd"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Oir-0F59EemImYeM5hMuZQ" name="Scan" isQuery="true"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_ahc6EF6BEemImYeM5hMuZQ" name="createMovie"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_fK0VEF6FEemImYeM5hMuZQ" name="SignOut"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_z2Fi4F6IEemImYeM5hMuZQ" name="onClick"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_oYsVsF6MEemImYeM5hMuZQ" name="PutItem"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_s-v60F6MEemImYeM5hMuZQ" name="GetItem"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1kNUwF6MEemImYeM5hMuZQ" name="DeleteItem"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_bwAlAF7bEemImYeM5hMuZQ" name="UpdateItem"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_m8a9oF7cEemImYeM5hMuZQ" name="Query" isQuery="true"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_LPFXEF7gEemImYeM5hMuZQ" name="click">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_8EENEF-dEemDkbkV0eWFsg" name="movie"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_i1wUIF7lEemImYeM5hMuZQ" name="updateMovie">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_S0UOwF-_Eemue7kLEzKvlg" name="movie" type="_LjhuQF05EemImYeM5hMuZQ"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_sLZtgF7oEemImYeM5hMuZQ" name="ngOnInit"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_aCt-8F7qEemImYeM5hMuZQ" name="createReview"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_N--jcF7uEemImYeM5hMuZQ" name="getAllReviews"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_SG-gQF_CEemue7kLEzKvlg" name="deleteMovie">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_SG-gQV_CEemue7kLEzKvlg" name="movie" type="_LjhuQF05EemImYeM5hMuZQ"/>
+      </ownedOperation>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_tfxWIF49EemImYeM5hMuZQ" name="AppsyncService"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_-_-dgF49EemImYeM5hMuZQ" name="Router"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_2yfc4F54EemImYeM5hMuZQ" name="AWSAppSynClient"/>
+      <nestedClassifier xmi:type="uml:DataType" xmi:id="_-1gpYF5-EemImYeM5hMuZQ" name="any"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_q06ksF6FEemImYeM5hMuZQ" name="AmplifyService"/>
+      <nestedClassifier xmi:type="uml:DataType" xmi:id="_8N1dEF7tEemImYeM5hMuZQ" name="Number"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_7dtjIGrfEemFztDUFtgMxA" name="Number"/>
+      <region xmi:type="uml:Region" xmi:id="_nHTloF00EemImYeM5hMuZQ" name="Region1">
+        <transition xmi:type="uml:Transition" xmi:id="_AJjKIF49EemImYeM5hMuZQ" source="_8E10AF47EemImYeM5hMuZQ" target="_lXhHgF47EemImYeM5hMuZQ">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_MROGkF49EemImYeM5hMuZQ">
+            <language>Typecript</language>
+            <body>observable.subscribe(({data}) => {&#xD;
+      if (!data) {&#xD;
+        return console.log('getAllMovies - no data');&#xD;
+      }&#xD;
+      this.newMovie1 = _(data.listMovies.items).value();&#xD;
+      console.log(this.newMovie1);&#xD;
+    });&#xD;
+  });</body>
+          </effect>
+          <trigger xmi:type="uml:Trigger" xmi:id="_FKTuQF49EemImYeM5hMuZQ" name="subscribe"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="__GhfgF4_EemImYeM5hMuZQ" source="_JFi_UF4-EemImYeM5hMuZQ" target="_k9BnEF4_EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_fZIrQF5AEemImYeM5hMuZQ" name="listMovies"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_DKBxMF5AEemImYeM5hMuZQ" source="_JFi_UF4-EemImYeM5hMuZQ" target="_hoWKQF4_EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_PnR8EF5AEemImYeM5hMuZQ" name="createMovie"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_IxfwAF5AEemImYeM5hMuZQ" source="_hoWKQF4_EemImYeM5hMuZQ" target="_q_eRsF4_EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_itgmEF5AEemImYeM5hMuZQ" name="PutItem"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_K94vEF5AEemImYeM5hMuZQ" source="_k9BnEF4_EemImYeM5hMuZQ" target="_q_eRsF4_EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_kkIJcF5AEemImYeM5hMuZQ" name="Scan"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_l5rAEF5AEemImYeM5hMuZQ" source="_q_eRsF4_EemImYeM5hMuZQ" target="_hoWKQF4_EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_qB-5QF5AEemImYeM5hMuZQ" name="result"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_q9dDAF5AEemImYeM5hMuZQ" source="_hoWKQF4_EemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ"/>
+        <transition xmi:type="uml:Transition" xmi:id="_wydHgF5AEemImYeM5hMuZQ" source="_q_eRsF4_EemImYeM5hMuZQ" target="_k9BnEF4_EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_BF1PYF5BEemImYeM5hMuZQ" name="result"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_zXSbwF5AEemImYeM5hMuZQ" source="_k9BnEF4_EemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_InxW0F5BEemImYeM5hMuZQ" name="result"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_bOX2AF53EemImYeM5hMuZQ" source="_JFi_UF4-EemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_gS3DkF53EemImYeM5hMuZQ" name="update"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_aGhKMF6EEemImYeM5hMuZQ" source="_JFi_UF4-EemImYeM5hMuZQ" target="_uWm0sF6DEemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_uS484F6EEemImYeM5hMuZQ" name="fetchmovie"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_cB6f4F6EEemImYeM5hMuZQ" source="_uWm0sF6DEemImYeM5hMuZQ" target="_q_eRsF4_EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_yGGIwF6EEemImYeM5hMuZQ" name="getItem"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_lwkWgF6EEemImYeM5hMuZQ" source="_q_eRsF4_EemImYeM5hMuZQ" target="_uWm0sF6DEemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_0cL2YF6EEemImYeM5hMuZQ" name="response"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_ndSXAF6EEemImYeM5hMuZQ" source="_uWm0sF6DEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_wMoFsF6EEemImYeM5hMuZQ" name="result"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_fcnA8F6LEemImYeM5hMuZQ" source="_8E10AF47EemImYeM5hMuZQ" target="_89Vl0F6JEemImYeM5hMuZQ">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_qtYxoF6LEemImYeM5hMuZQ">
+            <language>Typescript</language>
+            <body>observable.subscribe(({data}) => {&#xD;
+      if (!data) {&#xD;
+        return console.log('getMoviebyid - no data');&#xD;
+      }&#xD;
+      console.log('data',data);&#xD;
+      this.movieById = _(data.fetchMovie).value();&#xD;
+      &#xD;
+    });&#xD;
+  });</body>
+          </effect>
+          <trigger xmi:type="uml:Trigger" xmi:id="_ikLO0F6LEemImYeM5hMuZQ" name="subscribe"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_EBU7EF6MEemImYeM5hMuZQ" source="_JFi_UF4-EemImYeM5hMuZQ" target="_-j3M0F6LEemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_GoaSEF6MEemImYeM5hMuZQ" name="deleteMovie"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_Hl9fcF6MEemImYeM5hMuZQ" source="_-j3M0F6LEemImYeM5hMuZQ" target="_q_eRsF4_EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_Kn60kF6MEemImYeM5hMuZQ" name="DeleteItem"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_Q4roAF6MEemImYeM5hMuZQ" source="_q_eRsF4_EemImYeM5hMuZQ" target="_-j3M0F6LEemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_Y4ORcF6MEemImYeM5hMuZQ" name="response"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_UXAJAF6MEemImYeM5hMuZQ" source="_-j3M0F6LEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_Wp5_wF6MEemImYeM5hMuZQ" name="result"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_sTVJ0F6NEemImYeM5hMuZQ" source="_q_eRsF4_EemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_9vC2cF_EEemue7kLEzKvlg" name="subscribeToNewMovie"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_9RkPwF6REemImYeM5hMuZQ" source="_JFi_UF4-EemImYeM5hMuZQ" target="_2_DI0F6REemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_RbH_AF6SEemImYeM5hMuZQ" name="createReview"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_EVPt4F6SEemImYeM5hMuZQ" source="_2_DI0F6REemImYeM5hMuZQ" target="__viHAF6REemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_GvMn0F6SEemImYeM5hMuZQ" name="PutItem"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_H0whsF6SEemImYeM5hMuZQ" source="__viHAF6REemImYeM5hMuZQ" target="_2_DI0F6REemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_J2uZcF6SEemImYeM5hMuZQ" name="response"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_NfB84F6SEemImYeM5hMuZQ" source="_2_DI0F6REemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_Tj1_AF6SEemImYeM5hMuZQ" name="result"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_VoMcYF6SEemImYeM5hMuZQ" source="__viHAF6REemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_0JR2EF_EEemue7kLEzKvlg" name="subscribeToNewReview"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_8UMG4F6kEemImYeM5hMuZQ" source="_JFi_UF4-EemImYeM5hMuZQ" target="_2Ptb8F6kEemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_ZdLPQF6lEemImYeM5hMuZQ" name="updateMovie"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_BSSYkF6lEemImYeM5hMuZQ" source="_2Ptb8F6kEemImYeM5hMuZQ" target="_q_eRsF4_EemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_SJipkF6lEemImYeM5hMuZQ" name="UpdateItem"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_EoiisF6lEemImYeM5hMuZQ" source="_q_eRsF4_EemImYeM5hMuZQ" target="_2Ptb8F6kEemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_VQfMYF6lEemImYeM5hMuZQ" name="response"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_GlFH4F6lEemImYeM5hMuZQ" source="_2Ptb8F6kEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ"/>
+        <transition xmi:type="uml:Transition" xmi:id="_fYuVwF6nEemImYeM5hMuZQ" source="_8E10AF47EemImYeM5hMuZQ" target="_WAaSoF6TEemImYeM5hMuZQ">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_xftwUF6nEemImYeM5hMuZQ">
+            <language>TypeScript</language>
+            <body> observable.subscribe(({data}) => {&#xD;
+        if (!data) {&#xD;
+          return console.log('getAllReviews - no data');&#xD;
+        }&#xD;
+        this.all_reviews = _(data.fetchMovie.reviews.items).value();&#xD;
+        console.log('getAllReviews - Got data', this.all_reviews);&#xD;
+        &#xD;
+      });&#xD;
+&#xD;
+      console.log('movieID', this.movieID);</body>
+          </effect>
+          <trigger xmi:type="uml:Trigger" xmi:id="_qEZOQF6nEemImYeM5hMuZQ" name="subscribe"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_UGL1EF6oEemImYeM5hMuZQ" source="_N1RQoF6oEemImYeM5hMuZQ" target="__viHAF6REemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_YpaIoF6oEemImYeM5hMuZQ" name="Query"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_VripUF6oEemImYeM5hMuZQ" source="__viHAF6REemImYeM5hMuZQ" target="_N1RQoF6oEemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_a6A5UF6oEemImYeM5hMuZQ" name="response"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_dHuHAF6oEemImYeM5hMuZQ" source="_JFi_UF4-EemImYeM5hMuZQ" target="_N1RQoF6oEemImYeM5hMuZQ">
+          <trigger xmi:type="uml:Trigger" xmi:id="_l8iyoF6oEemImYeM5hMuZQ" name="reviews"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_ummroGrQEemFztDUFtgMxA" source="_s5LggGrQEemFztDUFtgMxA" target="_R9qeQF44EemImYeM5hMuZQ"/>
+        <transition xmi:type="uml:Transition" xmi:id="_W_1jwGrSEemFztDUFtgMxA" source="_M6cUoF47EemImYeM5hMuZQ" target="_TfE3kF5BEemImYeM5hMuZQ"/>
+        <transition xmi:type="uml:Transition" xmi:id="_rarnIGtdEemFztDUFtgMxA" source="_8E10AF47EemImYeM5hMuZQ" target="_E23ngF6CEemImYeM5hMuZQ">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_7-JZcGtdEemFztDUFtgMxA">
+            <language>Typescript</language>
+            <body>observable.subscribe(({data}) => {&#xD;
+        if (!data) {&#xD;
+          return console.log('getAllMovies - no data');&#xD;
+        }&#xD;
+        this.all_movies = _(data.listMovies.items).value();&#xD;
+         console.log(this.all_movies);&#xD;
+        console.log('getAllMovies - Got data', this.all_movies);&#xD;
+        this.no_movie = (this.all_movies.length === 0);&#xD;
+       &#xD;
+      });</body>
+          </effect>
+          <trigger xmi:type="uml:Trigger" xmi:id="_uZjzEGtdEemFztDUFtgMxA" name="subscribe"/>
+        </transition>
+        <subvertex xmi:type="uml:State" xmi:id="_R9qeQF44EemImYeM5hMuZQ" name="ApplicationRootComponent">
+          <region xmi:type="uml:Region" xmi:id="_eAqWEV44EemImYeM5hMuZQ" name="Register">
+            <transition xmi:type="uml:Transition" xmi:id="_9fxoUF44EemImYeM5hMuZQ" name="Register" source="_fr0QUF44EemImYeM5hMuZQ" target="_liDD4F44EemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_A80W8F45EemImYeM5hMuZQ" name="Verification Email" source="_liDD4F44EemImYeM5hMuZQ" target="_fr0QUF44EemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_J2WjcF45EemImYeM5hMuZQ" name="Confirm Registration" source="_fr0QUF44EemImYeM5hMuZQ" target="_liDD4F44EemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_N7Cg4F45EemImYeM5hMuZQ" name="Registration Successful" source="_liDD4F44EemImYeM5hMuZQ" target="_fr0QUF44EemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_U0fsAF45EemImYeM5hMuZQ" source="_eCKK4F44EemImYeM5hMuZQ" target="_fr0QUF44EemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_e_OaoF45EemImYeM5hMuZQ" source="_fr0QUF44EemImYeM5hMuZQ" target="_XYcPcF45EemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_gUdvQF45EemImYeM5hMuZQ" guard="_nIImAF46EemImYeM5hMuZQ" source="_XYcPcF45EemImYeM5hMuZQ" target="_fr0QUF44EemImYeM5hMuZQ">
+              <ownedRule xmi:type="uml:Constraint" xmi:id="_nIImAF46EemImYeM5hMuZQ">
+                <specification xmi:type="uml:LiteralBoolean" xmi:id="_nIImAV46EemImYeM5hMuZQ"/>
+              </ownedRule>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_ri1sMF45EemImYeM5hMuZQ" guard="_kOlmAF46EemImYeM5hMuZQ" source="_XYcPcF45EemImYeM5hMuZQ" target="_k1AiQF45EemImYeM5hMuZQ">
+              <ownedRule xmi:type="uml:Constraint" xmi:id="_kOlmAF46EemImYeM5hMuZQ">
+                <specification xmi:type="uml:LiteralBoolean" xmi:id="_kOlmAV46EemImYeM5hMuZQ" value="true"/>
+              </ownedRule>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_vYzRIF45EemImYeM5hMuZQ" name="Authenticate" source="_k1AiQF45EemImYeM5hMuZQ" target="_liDD4F44EemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_YSXrUF-dEemDkbkV0eWFsg" guard="_gHDvoF-dEemDkbkV0eWFsg" source="_k1AiQF45EemImYeM5hMuZQ" target="_M6cUoF47EemImYeM5hMuZQ">
+              <ownedRule xmi:type="uml:Constraint" xmi:id="_gHDvoF-dEemDkbkV0eWFsg">
+                <specification xmi:type="uml:LiteralBoolean" xmi:id="_gHDvoV-dEemDkbkV0eWFsg" value="true"/>
+              </ownedRule>
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_eWz6AF-dEemDkbkV0eWFsg">
+                <language>Typescript</language>
+                <body>constructor( private amplifyService: AmplifyService, public _router: Router ) {&#xD;
+        this.amplifyService.authStateChange$&#xD;
+            .subscribe(authState => {&#xD;
+                this.signedIn = authState.state === 'signedIn';&#xD;
+                if (!authState.user) {&#xD;
+                    this.user = null;&#xD;
+                    _router.navigate(['']);&#xD;
+                } &#xD;
+                else {&#xD;
+                    this.user = authState.user;&#xD;
+                    this.greeting = &quot;Hello &quot; + this.user.username;&#xD;
+                    _router.navigate(['/movie']);&#xD;
+                }&#xD;
+        });&#xD;
+    }</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_ayUfkF-dEemDkbkV0eWFsg" name="signedIn"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_ik5EAF-dEemDkbkV0eWFsg" source="_k1AiQF45EemImYeM5hMuZQ" target="_WJmoUF46EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_kwPhQF-dEemDkbkV0eWFsg" name="SignOut"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_uH24IGYEEemWfd3qIX4cjg" source="_WJmoUF46EemImYeM5hMuZQ" target="_rPDfAGYEEemWfd3qIX4cjg"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_eCKK4F44EemImYeM5hMuZQ" name=""/>
+            <subvertex xmi:type="uml:State" xmi:id="_fr0QUF44EemImYeM5hMuZQ" name="SignUp">
+              <doActivity xmi:type="uml:Activity" xmi:id="_yVuKsF44EemImYeM5hMuZQ" name="Signing Up"/>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_liDD4F44EemImYeM5hMuZQ" name="CognitoUserPool">
+              <doActivity xmi:type="uml:Activity" xmi:id="_4zA-QF44EemImYeM5hMuZQ" name="Creating user in user pool"/>
+            </subvertex>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_XYcPcF45EemImYeM5hMuZQ" kind="choice"/>
+            <subvertex xmi:type="uml:State" xmi:id="_k1AiQF45EemImYeM5hMuZQ" name="SignIn"/>
+            <subvertex xmi:type="uml:State" xmi:id="_WJmoUF46EemImYeM5hMuZQ" name="SignOut"/>
+            <subvertex xmi:type="uml:FinalState" xmi:id="_rPDfAGYEEemWfd3qIX4cjg"/>
+          </region>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_M6cUoF47EemImYeM5hMuZQ" name="movieComponent">
+          <region xmi:type="uml:Region" xmi:id="_Rimykl47EemImYeM5hMuZQ" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_4cJPAF47EemImYeM5hMuZQ" source="_RimymV47EemImYeM5hMuZQ" target="_lXhHgF47EemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_69l4EF47EemImYeM5hMuZQ" source="_lXhHgF47EemImYeM5hMuZQ" target="_WUJO8F47EemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_M4A2QF48EemImYeM5hMuZQ" guard="_0and0F48EemImYeM5hMuZQ" source="_lXhHgF47EemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <ownedRule xmi:type="uml:Constraint" xmi:id="_0and0F48EemImYeM5hMuZQ" name="fetchPolicy">
+                <specification xmi:type="uml:LiteralString" xmi:id="_0and0V48EemImYeM5hMuZQ" value="cache-and-network"/>
+              </ownedRule>
+              <trigger xmi:type="uml:Trigger" xmi:id="_hqaHIF48EemImYeM5hMuZQ" name="watchQuery" event="_8_DkEF48EemImYeM5hMuZQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_Z0InEF4_EemImYeM5hMuZQ" source="_lXhHgF47EemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_fbf4MF4_EemImYeM5hMuZQ" name="listMovies"/>
+            </transition>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_RimymV47EemImYeM5hMuZQ"/>
+            <subvertex xmi:type="uml:State" xmi:id="_WUJO8F47EemImYeM5hMuZQ" name="addMovie"/>
+            <subvertex xmi:type="uml:State" xmi:id="_lXhHgF47EemImYeM5hMuZQ" name="Initial"/>
+          </region>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_8E10AF47EemImYeM5hMuZQ" name="CacheStore"/>
+        <subvertex xmi:type="uml:State" xmi:id="_JFi_UF4-EemImYeM5hMuZQ" name="Proxy"/>
+        <subvertex xmi:type="uml:State" xmi:id="_hoWKQF4_EemImYeM5hMuZQ" name="createMovieResolver"/>
+        <subvertex xmi:type="uml:State" xmi:id="_k9BnEF4_EemImYeM5hMuZQ" name="listMoviesResolver"/>
+        <subvertex xmi:type="uml:State" xmi:id="_q_eRsF4_EemImYeM5hMuZQ" name="MovieTable"/>
+        <subvertex xmi:type="uml:State" xmi:id="_TfE3kF5BEemImYeM5hMuZQ" name="AddMovieComponent">
+          <region xmi:type="uml:Region" xmi:id="_m2RVwl5BEemImYeM5hMuZQ" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_4DNi4F5BEemImYeM5hMuZQ" source="_n-HHkF5BEemImYeM5hMuZQ" target="_m2uBsl5BEemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_Pj0GcF5CEemImYeM5hMuZQ" source="_m2uBsl5BEemImYeM5hMuZQ" target="_yXogIF5BEemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_Ts_iUF5CEemImYeM5hMuZQ" source="_yXogIF5BEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_BK3wgF56EemImYeM5hMuZQ" name="mutate" event="_py93wF4-EemImYeM5hMuZQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_EsKNUF53EemImYeM5hMuZQ" source="_yXogIF5BEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_XEeBYF53EemImYeM5hMuZQ" name="Mutation" event="_py93wF4-EemImYeM5hMuZQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_QCTCUF57EemImYeM5hMuZQ" source="_yXogIF5BEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_dCeUEF57EemImYeM5hMuZQ" name="writeQuery" event="_kgLbwF57EemImYeM5hMuZQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_yZZOUF57EemImYeM5hMuZQ" source="_yXogIF5BEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_Hz5oEF58EemImYeM5hMuZQ">
+                <language>Typescript</language>
+                <body> const query = listMovies;&#xD;
+         const data = proxy.readQuery({ query });&#xD;
+&#xD;
+         data.listMovies.items = [...data.listMovies.items.filter(m => m.id !== createMovie.id), createMovie];&#xD;
+&#xD;
+        proxy.writeQuery({ query, data });&#xD;
+        console.log(data);&#xD;
+        }&#xD;
+      }).then(({data}) => {&#xD;
+        console.log('mutation complete', data);&#xD;
+     }).catch(err => console.log('Error creating movie', err));&#xD;
+    });</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_6mhAwF57EemImYeM5hMuZQ" name="readQuery"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_MFIFUF5_EemImYeM5hMuZQ" source="_yXogIF5BEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_WUuF0F5_EemImYeM5hMuZQ" name="Query" event="_kgLbwF57EemImYeM5hMuZQ"/>
+            </transition>
+            <subvertex xmi:type="uml:State" xmi:id="_m2uBsl5BEemImYeM5hMuZQ" name="Init">
+              <doActivity xmi:type="uml:OpaqueBehavior" xmi:id="_CTYLIF5CEemImYeM5hMuZQ">
+                <language>Typescript</language>
+                <body>Auth.currentSession().then(session => {      &#xD;
+      this.session = session;     &#xD;
+      &#xD;
+    });</body>
+              </doActivity>
+            </subvertex>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_n-HHkF5BEemImYeM5hMuZQ" name=""/>
+            <subvertex xmi:type="uml:State" xmi:id="_yXogIF5BEemImYeM5hMuZQ" name="createMovie"/>
+          </region>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_8EsnQF6BEemImYeM5hMuZQ" name="movieListComponent">
+          <region xmi:type="uml:Region" xmi:id="_CGS9Ul6CEemImYeM5hMuZQ" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_sjz20F6CEemImYeM5hMuZQ" source="_CGcHQF6CEemImYeM5hMuZQ" target="_E23ngF6CEemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_uh-zsF6CEemImYeM5hMuZQ" guard="_DKtLMF6DEemImYeM5hMuZQ" source="_E23ngF6CEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <ownedRule xmi:type="uml:Constraint" xmi:id="_DKtLMF6DEemImYeM5hMuZQ" name="fetchPolicy">
+                <specification xmi:type="uml:LiteralString" xmi:id="_DKtLMV6DEemImYeM5hMuZQ" value="cache-and-network"/>
+              </ownedRule>
+              <trigger xmi:type="uml:Trigger" xmi:id="_z_XpcF6CEemImYeM5hMuZQ" name="watchQuery" event="_8_DkEF48EemImYeM5hMuZQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_jGaS0F6DEemImYeM5hMuZQ" source="_E23ngF6CEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_oEevUF6DEemImYeM5hMuZQ" name="Query" event="_8_DkEF48EemImYeM5hMuZQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_CCtWcF6FEemImYeM5hMuZQ" source="_E23ngF6CEemImYeM5hMuZQ" target="_TZwCIF6CEemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_EfzD8F6FEemImYeM5hMuZQ" source="_E23ngF6CEemImYeM5hMuZQ" target="_WKqqkF6CEemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_Ch7zoF6GEemImYeM5hMuZQ" source="_WKqqkF6CEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_b5n0oF6GEemImYeM5hMuZQ" name="Mutation" event="_ZPRHMF6GEemImYeM5hMuZQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_72bIcF6GEemImYeM5hMuZQ" source="_WKqqkF6CEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_B7JOgF6IEemImYeM5hMuZQ" name="mutate" event="_ZPRHMF6GEemImYeM5hMuZQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_Yq6yEF6IEemImYeM5hMuZQ" source="_WKqqkF6CEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_l1_sQF6IEemImYeM5hMuZQ">
+                <language>Typescript</language>
+                <body>const query = listMovies;&#xD;
+         const data = proxy.readQuery({ query });&#xD;
+&#xD;
+         data.listMovies.items = data.listMovies.items.filter(movie => movie.id !== deleteMovie.id);&#xD;
+&#xD;
+       proxy.writeQuery({ query, data });&#xD;
+       console.log(data);&#xD;
+       }&#xD;
+     }).then(({data}) => {&#xD;
+       console.log('Delete mutation complete', data);&#xD;
+    }).catch(err => console.log('Error deleting movie', err));&#xD;
+   });</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_g9r5gF6IEemImYeM5hMuZQ" name="readQuery"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_3F0IEF6lEemImYeM5hMuZQ" source="_E23ngF6CEemImYeM5hMuZQ" target="_y8Q4wF6lEemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_QxifYF6mEemImYeM5hMuZQ" source="_y8Q4wF6lEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_b_gzsF6mEemImYeM5hMuZQ" name="Mutation" event="_bnzeUF6mEemImYeM5hMuZQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_iGmGsF6mEemImYeM5hMuZQ" source="_y8Q4wF6lEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_w_fNkF6mEemImYeM5hMuZQ" name="mutate" event="_bnzeUF6mEemImYeM5hMuZQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_MLAjsF6nEemImYeM5hMuZQ" source="_y8Q4wF6lEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_8oWdkF7nEemImYeM5hMuZQ">
+                <language>Typescript</language>
+                <body>const query = listMovies;&#xD;
+         const data = proxy.readQuery({ query });&#xD;
+&#xD;
+         data.listMovies.items = data.listMovies.items.filter(movie => movie.id !== updateMovie.id);&#xD;
+&#xD;
+       proxy.writeQuery({ query, data });&#xD;
+       console.log(data);&#xD;
+       }&#xD;
+     }).then(({data}) => {&#xD;
+       console.log('Update mutation complete', data);&#xD;
+    }).catch(err => console.log('Error updating movie', err));&#xD;
+   });</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_RGMEQF6nEemImYeM5hMuZQ" name="readQuery"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_4-ecYGYEEemWfd3qIX4cjg" source="_E23ngF6CEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_KUDoIGYFEemWfd3qIX4cjg">
+                <language>Typescript</language>
+                <body>updateQuery: (prev, { subscriptionData: { data: { subscribeToNewMovie } } }) => ({&#xD;
+            ...prev,listMovies: {items: [subscribeToNewMovie, ...prev.listMovies.items.filter(movie => movie.id !== subscribeToNewMovie.id),&#xD;
+              ],&#xD;
+              __typename: 'MovieConnection',&#xD;
+            },&#xD;
+          }),&#xD;
+       });</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_Dlk98GYFEemWfd3qIX4cjg" name="Subscription" event="_mlqDkF_FEemue7kLEzKvlg"/>
+            </transition>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_CGcHQF6CEemImYeM5hMuZQ"/>
+            <subvertex xmi:type="uml:State" xmi:id="_E23ngF6CEemImYeM5hMuZQ" name="AllMovies"/>
+            <subvertex xmi:type="uml:State" xmi:id="_TZwCIF6CEemImYeM5hMuZQ" name="movieDetail"/>
+            <subvertex xmi:type="uml:State" xmi:id="_WKqqkF6CEemImYeM5hMuZQ" name="DeleteMovie"/>
+            <subvertex xmi:type="uml:State" xmi:id="_y8Q4wF6lEemImYeM5hMuZQ" name="UpdateMovie"/>
+          </region>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_uWm0sF6DEemImYeM5hMuZQ" name="fetchMovieResolver"/>
+        <subvertex xmi:type="uml:State" xmi:id="_z23JgF6JEemImYeM5hMuZQ" name="movieDetailComponent">
+          <region xmi:type="uml:Region" xmi:id="_48hbwl6JEemImYeM5hMuZQ" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_GrqP0F6LEemImYeM5hMuZQ" source="_48hbyV6JEemImYeM5hMuZQ" target="_89Vl0F6JEemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_NdgXEF6LEemImYeM5hMuZQ" guard="_Z6ZVkF6LEemImYeM5hMuZQ" source="_89Vl0F6JEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <ownedRule xmi:type="uml:Constraint" xmi:id="_Z6ZVkF6LEemImYeM5hMuZQ" name="fetchPolicy">
+                <specification xmi:type="uml:LiteralString" xmi:id="_Z6ZVkV6LEemImYeM5hMuZQ" value="cache-and-network"/>
+              </ownedRule>
+              <trigger xmi:type="uml:Trigger" xmi:id="_TC8VkF6LEemImYeM5hMuZQ" name="watchQuery" event="_kgLbwF57EemImYeM5hMuZQ"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_0V9OYF6LEemImYeM5hMuZQ" source="_89Vl0F6JEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_6UY7sF6LEemImYeM5hMuZQ" name="fetchMovie"/>
+            </transition>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_48hbyV6JEemImYeM5hMuZQ" name=""/>
+            <subvertex xmi:type="uml:State" xmi:id="_89Vl0F6JEemImYeM5hMuZQ" name="Init"/>
+          </region>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_-j3M0F6LEemImYeM5hMuZQ" name="deleteMovieResolver"/>
+        <subvertex xmi:type="uml:State" xmi:id="_KH1w4F6NEemImYeM5hMuZQ" name="addReviewComponent">
+          <region xmi:type="uml:Region" xmi:id="_RwKNIl6NEemImYeM5hMuZQ" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_bhe9QF6NEemImYeM5hMuZQ" source="_RwKNKV6NEemImYeM5hMuZQ" target="_tJrGgF6OEemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_DirlUF6OEemImYeM5hMuZQ" source="_Thb9gF6NEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+              <trigger xmi:type="uml:Trigger" xmi:id="_NdtrEF6OEemImYeM5hMuZQ" name="createReview"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_UpptUF6OEemImYeM5hMuZQ" source="_Thb9gF6NEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_nbnXgF6OEemImYeM5hMuZQ">
+                <language>Typescript</language>
+                <body>__typename: 'Review', Id: uuid()</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_ZiV6kF6OEemImYeM5hMuZQ" name="mutate"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_9ONhIF6OEemImYeM5hMuZQ" source="_tJrGgF6OEemImYeM5hMuZQ" target="_Thb9gF6NEemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_GFJFkF6PEemImYeM5hMuZQ" source="_Thb9gF6NEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_fcjZwF6PEemImYeM5hMuZQ">
+                <language>Typescript</language>
+                <body> const query2 = fetchMovie;&#xD;
+       const variables = { id: createReview.movieID };&#xD;
+       const data = proxy.readQuery({ query2, variables });&#xD;
+       console.log(data);&#xD;
+      data.fetchMovie = {&#xD;
+                    ...data.fetchMovie,&#xD;
+                    reviews: {&#xD;
+                     ...data.fetchMovie.reviews,&#xD;
+                    items: [...data.fetchMovie.reviews.items.filter(r => r.Id !== createReview.Id), createReview, ]&#xD;
+                    }&#xD;
+                };&#xD;
+&#xD;
+                proxy.writeQuery({ query2, data });&#xD;
+                 console.log(data);&#xD;
+        }&#xD;
+      }).then(({data}) => {&#xD;
+        console.log('mutation complete', data);&#xD;
+     }).catch(err => console.log('Error creating review', err));&#xD;
+    });&#xD;
+    </body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_MM_0oF6PEemImYeM5hMuZQ" name="readQuery" event="_kgLbwF57EemImYeM5hMuZQ"/>
+            </transition>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_RwKNKV6NEemImYeM5hMuZQ"/>
+            <subvertex xmi:type="uml:State" xmi:id="_Thb9gF6NEemImYeM5hMuZQ" name="createReview"/>
+            <subvertex xmi:type="uml:State" xmi:id="_tJrGgF6OEemImYeM5hMuZQ" name="Init">
+              <doActivity xmi:type="uml:OpaqueBehavior" xmi:id="_33OOUF6OEemImYeM5hMuZQ">
+                <language>Typescript</language>
+                <body>Auth.currentSession().then(session => {      &#xD;
+      this.session = session;     &#xD;
+      &#xD;
+    });</body>
+              </doActivity>
+            </subvertex>
+          </region>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_2_DI0F6REemImYeM5hMuZQ" name="createReviewResolver"/>
+        <subvertex xmi:type="uml:State" xmi:id="__viHAF6REemImYeM5hMuZQ" name="ReviewTable"/>
+        <subvertex xmi:type="uml:State" xmi:id="_I54hQF6TEemImYeM5hMuZQ" name="movieReviewsComponent">
+          <region xmi:type="uml:Region" xmi:id="_Nsdfcl6TEemImYeM5hMuZQ" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_ZprfYF6TEemImYeM5hMuZQ" source="_NsdfeV6TEemImYeM5hMuZQ" target="_WAaSoF6TEemImYeM5hMuZQ"/>
+            <transition xmi:type="uml:Transition" xmi:id="_fjF6EF6kEemImYeM5hMuZQ" guard="_wSvuQF6kEemImYeM5hMuZQ" source="_WAaSoF6TEemImYeM5hMuZQ" target="_8E10AF47EemImYeM5hMuZQ">
+              <ownedRule xmi:type="uml:Constraint" xmi:id="_wSvuQF6kEemImYeM5hMuZQ" name="fetchPolicy">
+                <specification xmi:type="uml:LiteralString" xmi:id="_wSvuQV6kEemImYeM5hMuZQ" value="cache-first"/>
+              </ownedRule>
+              <trigger xmi:type="uml:Trigger" xmi:id="_oCqHYF6kEemImYeM5hMuZQ" name="watchQuery"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_U-3lAGYFEemWfd3qIX4cjg" source="_WAaSoF6TEemImYeM5hMuZQ" target="_JFi_UF4-EemImYeM5hMuZQ">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_lAXSsGYFEemWfd3qIX4cjg">
+                <language>Typescript</language>
+                <body>variables: { 'movieID': this.movieID },&#xD;
+        updateQuery: (prev, {subscriptionData: {data: {subscribeToNewReview }}}) => {&#xD;
+          const res = {...prev, fetchMovie: {...prev.fetchMovie, reviews: {        __typename: 'ReviewConnection', ...prev.fetchMovie.reviews,&#xD;
+              items: [...prev.fetchMovie.reviews.items.filter(r => r.Id !== subscribeToNewReview.Id), subscribeToNewReview,]&#xD;
+                }&#xD;
+            }&#xD;
+        };&#xD;
+ 		console.log('result', res);&#xD;
+        return res;&#xD;
+    }&#xD;
+    })</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_ew8jEGYFEemWfd3qIX4cjg" name="Subscription" event="_cxWeoF_KEemue7kLEzKvlg"/>
+            </transition>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_NsdfeV6TEemImYeM5hMuZQ"/>
+            <subvertex xmi:type="uml:State" xmi:id="_WAaSoF6TEemImYeM5hMuZQ" name="AllReviews"/>
+          </region>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_2Ptb8F6kEemImYeM5hMuZQ" name="updateMovieResolver"/>
+        <subvertex xmi:type="uml:State" xmi:id="_N1RQoF6oEemImYeM5hMuZQ" name="movieReviewsResolver"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_s5LggGrQEemFztDUFtgMxA" name=""/>
+      </region>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_wy6vUF00EemImYeM5hMuZQ" name="schema">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_1SggEF00EemImYeM5hMuZQ" name="ID"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_4IywsF00EemImYeM5hMuZQ" name="Float"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_5NgWAF00EemImYeM5hMuZQ" name="Int"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_6FZnUF00EemImYeM5hMuZQ" name="String"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_7C80sF00EemImYeM5hMuZQ" name="Boolean"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_AcN_cF01EemImYeM5hMuZQ" name="Query" classifier="_VKUmMF01EemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_pChfsF01EemImYeM5hMuZQ" name="Mutation" classifier="_VKUmMF01EemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_sqlykF01EemImYeM5hMuZQ" name="Subscription" classifier="_VKUmMF01EemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_E1yyUF02EemImYeM5hMuZQ" name="Movie" classifier="_Xfg78F01EemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_HzZy8F02EemImYeM5hMuZQ" name="Review" classifier="_Xfg78F01EemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_UFwVYF02EemImYeM5hMuZQ" name="MovieConnection" classifier="_Xfg78F01EemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_dkKJgF02EemImYeM5hMuZQ" name="ReviewConnection" classifier="_Xfg78F01EemImYeM5hMuZQ"/>
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5LLlUF01EemImYeM5hMuZQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_m1Fm8GtbEemFztDUFtgMxA" source="PapyrusVersion">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m1Fm8WtbEemFztDUFtgMxA" key="Version" value="0.0.165"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m1Fm8mtbEemFztDUFtgMxA" key="Comment" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m1Fm82tbEemFztDUFtgMxA" key="Copyright" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m1Fm9GtbEemFztDUFtgMxA" key="Date" value="2019-04-30"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m1Fm9WtbEemFztDUFtgMxA" key="Author" value=""/>
+        </eAnnotations>
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5LVWUF01EemImYeM5hMuZQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="../ServerlessDDProfile/ServerlessDDProfile.profile.uml#_3mQTgWtaEemFztDUFtgMxA"/>
+        </eAnnotations>
+        <appliedProfile xmi:type="uml:Profile" href="../ServerlessDDProfile/ServerlessDDProfile.profile.uml#_zYO6oE5gEemTD46Gp8i3OQ"/>
+      </profileApplication>
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_5LVWV101EemImYeM5hMuZQ">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_m3Kql2tbEemFztDUFtgMxA" source="PapyrusVersion">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m3KqmGtbEemFztDUFtgMxA" key="Version" value="0.0.165"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m3KqmWtbEemFztDUFtgMxA" key="Comment" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m3KqmmtbEemFztDUFtgMxA" key="Copyright" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m3Kqm2tbEemFztDUFtgMxA" key="Date" value="2019-04-30"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m3KqnGtbEemFztDUFtgMxA" key="Author" value=""/>
+        </eAnnotations>
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5LVWWF01EemImYeM5hMuZQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="../ServerlessDDProfile/ServerlessDDProfile.profile.uml#_9qQdUGtaEemFztDUFtgMxA"/>
+        </eAnnotations>
+        <appliedProfile xmi:type="uml:Profile" href="../ServerlessDDProfile/ServerlessDDProfile.profile.uml#_34R-YE5gEemTD46Gp8i3OQ"/>
+      </profileApplication>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Joqg4F01EemImYeM5hMuZQ" name="schema"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_VKUmMF01EemImYeM5hMuZQ" name="RootType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cJcUc101EemImYeM5hMuZQ" name="schema" type="_Joqg4F01EemImYeM5hMuZQ" association="_cJcUcF01EemImYeM5hMuZQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cJcUdF01EemImYeM5hMuZQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cJcUdV01EemImYeM5hMuZQ" value="1"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:FunctionBehavior" xmi:id="_Vv9QkF06EemImYeM5hMuZQ" name="createMovie" specification="_lKmZol06EemImYeM5hMuZQ"/>
+      <ownedBehavior xmi:type="uml:FunctionBehavior" xmi:id="_ky32IF06EemImYeM5hMuZQ" name="createReview" specification="_lKmZoF06EemImYeM5hMuZQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_lKmZoF06EemImYeM5hMuZQ" name="subscribeToNewReview" method="_ky32IF06EemImYeM5hMuZQ">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_lKmZoV06EemImYeM5hMuZQ" name="Review" type="_8k7ykF05EemImYeM5hMuZQ" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_dbGXgF_QEemue7kLEzKvlg" name="movieID" type="_6FZnUF00EemImYeM5hMuZQ"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_lKmZol06EemImYeM5hMuZQ" name="subscribeToNewMovie" method="_Vv9QkF06EemImYeM5hMuZQ">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_lKmZo106EemImYeM5hMuZQ" name="Movie" type="_LjhuQF05EemImYeM5hMuZQ" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_7VGbAF08EemImYeM5hMuZQ" name="fetchMovie" isQuery="true">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_7VGbAV08EemImYeM5hMuZQ" name="id" type="_1SggEF00EemImYeM5hMuZQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_7VGbAl08EemImYeM5hMuZQ" name="Movie" type="_LjhuQF05EemImYeM5hMuZQ" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_7VGbA108EemImYeM5hMuZQ" name="listMovies">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_7VGbBF08EemImYeM5hMuZQ" name="limit" type="_5NgWAF00EemImYeM5hMuZQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_7VGbBV08EemImYeM5hMuZQ" name="nextToken">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_D6XnsF09EemImYeM5hMuZQ" name="movieconnection" type="_DCe9cF09EemImYeM5hMuZQ" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kvenEF0-EemImYeM5hMuZQ" name="createReview">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvenEV0-EemImYeM5hMuZQ" name="movieID" type="_1SggEF00EemImYeM5hMuZQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvenEl0-EemImYeM5hMuZQ" name="Id" type="_1SggEF00EemImYeM5hMuZQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvenE10-EemImYeM5hMuZQ" name="rating" type="_5NgWAF00EemImYeM5hMuZQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvenFF0-EemImYeM5hMuZQ" name="content">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvenFV0-EemImYeM5hMuZQ" name="author">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvenFl0-EemImYeM5hMuZQ" name="createdAt">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvenF10-EemImYeM5hMuZQ" name="review" type="_8k7ykF05EemImYeM5hMuZQ" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kvnxAF0-EemImYeM5hMuZQ" name="updateMovie">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxAV0-EemImYeM5hMuZQ" name="id" type="_1SggEF00EemImYeM5hMuZQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxAl0-EemImYeM5hMuZQ" name="title">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxA10-EemImYeM5hMuZQ" name="genre">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxBF0-EemImYeM5hMuZQ" name="director">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxBV0-EemImYeM5hMuZQ" name="author">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxBl0-EemImYeM5hMuZQ" name="createdAt">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxB10-EemImYeM5hMuZQ" name="likes" type="_5NgWAF00EemImYeM5hMuZQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxCF0-EemImYeM5hMuZQ" name="movie" type="_LjhuQF05EemImYeM5hMuZQ"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kvnxCV0-EemImYeM5hMuZQ" name="deleteMovie">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxCl0-EemImYeM5hMuZQ" name="id" type="_1SggEF00EemImYeM5hMuZQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxC10-EemImYeM5hMuZQ" name="movie" type="_LjhuQF05EemImYeM5hMuZQ" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_kvnxDF0-EemImYeM5hMuZQ" name="createMovie">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxDV0-EemImYeM5hMuZQ" name="id" type="_1SggEF00EemImYeM5hMuZQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxDl0-EemImYeM5hMuZQ" name="title">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxD10-EemImYeM5hMuZQ" name="genre">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxEF0-EemImYeM5hMuZQ" name="director">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxEV0-EemImYeM5hMuZQ" name="author">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxEl0-EemImYeM5hMuZQ" name="createdAt">
+          <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxE10-EemImYeM5hMuZQ" name="likes" type="_5NgWAF00EemImYeM5hMuZQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_kvnxFF0-EemImYeM5hMuZQ" name="movie" type="_LjhuQF05EemImYeM5hMuZQ" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Xfg78F01EemImYeM5hMuZQ" name="ObjectType">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bRZ5M101EemImYeM5hMuZQ" name="schema" type="_Joqg4F01EemImYeM5hMuZQ" association="_bRZ5MF01EemImYeM5hMuZQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bRZ5NF01EemImYeM5hMuZQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bRZ5NV01EemImYeM5hMuZQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E9jVQF04EemImYeM5hMuZQ" name="id" type="_1SggEF00EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E9jVQV04EemImYeM5hMuZQ" name="likes" type="_5NgWAF00EemImYeM5hMuZQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_jpn5IF55EemImYeM5hMuZQ" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E9jVQl04EemImYeM5hMuZQ" name="genre">
+        <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_RVrnsF55EemImYeM5hMuZQ" value="this.genre"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E9jVQ104EemImYeM5hMuZQ" name="createdAt">
+        <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_uX4LkF55EemImYeM5hMuZQ" value="date"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E9jVRF04EemImYeM5hMuZQ" name="director">
+        <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_W9K0oF55EemImYeM5hMuZQ" value="this.director"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E9jVRV04EemImYeM5hMuZQ" name="author">
+        <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_eWGKAF55EemImYeM5hMuZQ" value="this.session.idToken.payload['cognito:username']"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E9jVRl04EemImYeM5hMuZQ" name="title">
+        <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_NcoSgF55EemImYeM5hMuZQ" value="this.title"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Rh3KYF04EemImYeM5hMuZQ" name="reviews" type="_QwYDEF04EemImYeM5hMuZQ" subsettedProperty="_79wb0F1PEemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__0XYcF04EemImYeM5hMuZQ" name="nextToken">
+        <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__0XYcV04EemImYeM5hMuZQ" name="limit" type="_5NgWAF00EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_NgfxQF05EemImYeM5hMuZQ" name="items" type="_LjhuQF05EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jriQEF05EemImYeM5hMuZQ" name="rating" type="_5NgWAF00EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jriQEV05EemImYeM5hMuZQ" name="Id" type="_1SggEF00EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jriQEl05EemImYeM5hMuZQ" name="movieID" type="_1SggEF00EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jriQE105EemImYeM5hMuZQ" name="content">
+        <type xmi:type="uml:PrimitiveType" href="../EventsCalendarApp/EventsCalendarApp.uml#_Kv_qsFonEemWjK_iKsZb4w"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_M22ToGqoEemnVICEQtCLkA" value="this.review"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-aV1AF05EemImYeM5hMuZQ" name="items" type="_8k7ykF05EemImYeM5hMuZQ" subsettedProperty="_E9jVQF04EemImYeM5hMuZQ _jriQEV05EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_79wb0F1PEemImYeM5hMuZQ" name="items" subsettedProperty="_jriQEV05EemImYeM5hMuZQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_IOLroF1QEemImYeM5hMuZQ" name="reviews" subsettedProperty="_79wb0F1PEemImYeM5hMuZQ"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_QwYDEF04EemImYeM5hMuZQ" name="ReviewConnection"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_LjhuQF05EemImYeM5hMuZQ" name="Movie">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_ga0pIF7tEemImYeM5hMuZQ" name="id" type="_6FZnUF00EemImYeM5hMuZQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_jKLyYF7tEemImYeM5hMuZQ" name="genre" type="_6FZnUF00EemImYeM5hMuZQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mBCDsF7tEemImYeM5hMuZQ" name="director" type="_6FZnUF00EemImYeM5hMuZQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wM4zsF7tEemImYeM5hMuZQ" name="title" type="_6FZnUF00EemImYeM5hMuZQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_zWEyMF7tEemImYeM5hMuZQ" name="author" type="_6FZnUF00EemImYeM5hMuZQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_1ksl4F7tEemImYeM5hMuZQ" name="createdAt" type="_6FZnUF00EemImYeM5hMuZQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_8gUUMF7tEemImYeM5hMuZQ" name="likes" type="_8N1dEF7tEemImYeM5hMuZQ"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_8k7ykF05EemImYeM5hMuZQ" name="Review">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xPTOYGrfEemFztDUFtgMxA" name="movieID">
+          <type xmi:type="uml:PrimitiveType" href="../RealTimeChatApp/RealTimeChatApp.uml#_4m20AGAZEem6KI054_wDLA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_z97X0GrfEemFztDUFtgMxA" name="Id">
+          <type xmi:type="uml:PrimitiveType" href="../RealTimeChatApp/RealTimeChatApp.uml#_4m20AGAZEem6KI054_wDLA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_85WasGrfEemFztDUFtgMxA" name="rating" type="_7dtjIGrfEemFztDUFtgMxA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__rGwoGrfEemFztDUFtgMxA" name="content">
+          <type xmi:type="uml:PrimitiveType" href="../RealTimeChatApp/RealTimeChatApp.uml#_4m20AGAZEem6KI054_wDLA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Bi5_wGrgEemFztDUFtgMxA" name="author">
+          <type xmi:type="uml:PrimitiveType" href="../RealTimeChatApp/RealTimeChatApp.uml#_4m20AGAZEem6KI054_wDLA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_DeSHUGrgEemFztDUFtgMxA" name="createdAt">
+          <type xmi:type="uml:PrimitiveType" href="../RealTimeChatApp/RealTimeChatApp.uml#_4m20AGAZEem6KI054_wDLA"/>
+        </ownedAttribute>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_DCe9cF09EemImYeM5hMuZQ" name="MovieConnection"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_bRZ5MF01EemImYeM5hMuZQ" memberEnd="_bRZ5M101EemImYeM5hMuZQ _bRZ5Nl01EemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bRZ5MV01EemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bRZ5Ml01EemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_bRZ5Nl01EemImYeM5hMuZQ" name="objecttype" type="_Xfg78F01EemImYeM5hMuZQ" association="_bRZ5MF01EemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_cJcUcF01EemImYeM5hMuZQ" memberEnd="_cJcUc101EemImYeM5hMuZQ _cJcUdl01EemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cJcUcV01EemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cJcUcl01EemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_cJcUdl01EemImYeM5hMuZQ" name="roottype" type="_VKUmMF01EemImYeM5hMuZQ" association="_cJcUcF01EemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_vNpIsF02EemImYeM5hMuZQ" name="InstanceSpecification9">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_v0P1sF02EemImYeM5hMuZQ" source="InstanceEnd" references="_pChfsF01EemImYeM5hMuZQ _E1yyUF02EemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_w2A0sF02EemImYeM5hMuZQ" name="InstanceSpecification10">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xUan8F02EemImYeM5hMuZQ" source="InstanceEnd" references="_pChfsF01EemImYeM5hMuZQ _HzZy8F02EemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_1m9bMF02EemImYeM5hMuZQ" name="InstanceSpecification11">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2BolAF02EemImYeM5hMuZQ" source="InstanceEnd" references="_AcN_cF01EemImYeM5hMuZQ _UFwVYF02EemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_24etcF02EemImYeM5hMuZQ" name="InstanceSpecification12">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3N8nIF02EemImYeM5hMuZQ" source="InstanceEnd" references="_AcN_cF01EemImYeM5hMuZQ _E1yyUF02EemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="__LDAkF02EemImYeM5hMuZQ" name="InstanceSpecification13">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__sCNwF02EemImYeM5hMuZQ" source="InstanceEnd" references="_sqlykF01EemImYeM5hMuZQ _HzZy8F02EemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_CBEygF03EemImYeM5hMuZQ" name="InstanceSpecification14">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CghuoF03EemImYeM5hMuZQ" source="InstanceEnd" references="_sqlykF01EemImYeM5hMuZQ _E1yyUF02EemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_HDxQUF03EemImYeM5hMuZQ" name="InstanceSpecification15">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HdZ4UF03EemImYeM5hMuZQ" source="InstanceEnd" references="_E1yyUF02EemImYeM5hMuZQ _dkKJgF02EemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_Rq9E4F1MEemImYeM5hMuZQ" name="auth.component">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_YRVjAF1MEemImYeM5hMuZQ" name="authenticator" classifier="_fnWuUF1MEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_dOSlMF1MEemImYeM5hMuZQ" name="Component"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_eiWOEF1MEemImYeM5hMuZQ" name="Button"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_fnWuUF1MEemImYeM5hMuZQ" name="CustomElement"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_gt_mQF1MEemImYeM5hMuZQ" name="Text"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_iAkBYF1MEemImYeM5hMuZQ" name="Container"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_jXAP4F1MEemImYeM5hMuZQ" name="Grid"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_oOProF1MEemImYeM5hMuZQ" name="Card"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pOb9UF1MEemImYeM5hMuZQ" name="DataBinding">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_TdZOMGrGEemnVICEQtCLkA" name="movie">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_TdZOMWrGEemnVICEQtCLkA" value="newMovie1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-ijWgGrGEemnVICEQtCLkA" name="movieID">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_-ijWgWrGEemnVICEQtCLkA" value="movieById?.id"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-ijWgmrGEemnVICEQtCLkA" name="review">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_-ijWg2rGEemnVICEQtCLkA" value="movieById?.reviews"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bIgqUGrHEemnVICEQtCLkA" name="movieID">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_bIgqUWrHEemnVICEQtCLkA" value="movieID"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_qdua8F1MEemImYeM5hMuZQ" name="DOM_Manipulation"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1BD20F1MEemImYeM5hMuZQ" name="Input">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_aZQcU11NEemImYeM5hMuZQ" name="form" type="_FuQz8F1NEemImYeM5hMuZQ" association="_aZQcUF1NEemImYeM5hMuZQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aZQcVF1NEemImYeM5hMuZQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aZQcVV1NEemImYeM5hMuZQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_2ZvhAF1MEemImYeM5hMuZQ" name="TextArea">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_a-9KY11NEemImYeM5hMuZQ" name="form" type="_FuQz8F1NEemImYeM5hMuZQ" association="_a-9KYF1NEemImYeM5hMuZQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a-9KZF1NEemImYeM5hMuZQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a-9KZV1NEemImYeM5hMuZQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_E1jqUF1NEemImYeM5hMuZQ" name="Icon"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FuQz8F1NEemImYeM5hMuZQ" name="Form"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_QjkJkF1NEemImYeM5hMuZQ" memberEnd="_QjkJk11NEemImYeM5hMuZQ _QjtTgl1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QjkJkV1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QjkJkl1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_QjtTgl1NEemImYeM5hMuZQ" name="grid" type="_jXAP4F1MEemImYeM5hMuZQ" association="_QjkJkF1NEemImYeM5hMuZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_QjkJk11NEemImYeM5hMuZQ" name="container" type="_dOSlMF1MEemImYeM5hMuZQ" association="_QjkJkF1NEemImYeM5hMuZQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QjtTgF1NEemImYeM5hMuZQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QjtTgV1NEemImYeM5hMuZQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_SV4bwF1NEemImYeM5hMuZQ" memberEnd="_SV4bw11NEemImYeM5hMuZQ _SWBlsV1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SV4bwV1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SV4bwl1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_SWBlsV1NEemImYeM5hMuZQ" name="customelement" type="_fnWuUF1MEemImYeM5hMuZQ" association="_SV4bwF1NEemImYeM5hMuZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_SV4bw11NEemImYeM5hMuZQ" name="component" type="_dOSlMF1MEemImYeM5hMuZQ" association="_SV4bwF1NEemImYeM5hMuZQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SV4bxF1NEemImYeM5hMuZQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SWBlsF1NEemImYeM5hMuZQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Wc9l4F1NEemImYeM5hMuZQ" memberEnd="_WdHW4V1NEemImYeM5hMuZQ _WdHW5F1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Wc9l4V1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WdHW4F1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_WdHW5F1NEemImYeM5hMuZQ" name="container" type="_iAkBYF1MEemImYeM5hMuZQ" association="_Wc9l4F1NEemImYeM5hMuZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_WdHW4V1NEemImYeM5hMuZQ" name="component" type="_dOSlMF1MEemImYeM5hMuZQ" association="_Wc9l4F1NEemImYeM5hMuZQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WdHW4l1NEemImYeM5hMuZQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WdHW411NEemImYeM5hMuZQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_W9dD0F1NEemImYeM5hMuZQ" memberEnd="_W9mNwl1NEemImYeM5hMuZQ _W9mNxV1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_W9mNwF1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_W9mNwV1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_W9mNxV1NEemImYeM5hMuZQ" name="button" type="_eiWOEF1MEemImYeM5hMuZQ" association="_W9dD0F1NEemImYeM5hMuZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_W9mNwl1NEemImYeM5hMuZQ" name="component" type="_dOSlMF1MEemImYeM5hMuZQ" association="_W9dD0F1NEemImYeM5hMuZQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W9mNw11NEemImYeM5hMuZQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W9mNxF1NEemImYeM5hMuZQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aZQcUF1NEemImYeM5hMuZQ" memberEnd="_aZQcU11NEemImYeM5hMuZQ _aZQcVl1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aZQcUV1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_aZQcUl1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_aZQcVl1NEemImYeM5hMuZQ" name="input" type="_1BD20F1MEemImYeM5hMuZQ" association="_aZQcUF1NEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_a-9KYF1NEemImYeM5hMuZQ" memberEnd="_a-9KY11NEemImYeM5hMuZQ _a-9KZl1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_a-9KYV1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_a-9KYl1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_a-9KZl1NEemImYeM5hMuZQ" name="textarea" type="_2ZvhAF1MEemImYeM5hMuZQ" association="_a-9KYF1NEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kK6joF1NEemImYeM5hMuZQ" memberEnd="_kLEUol1NEemImYeM5hMuZQ _kLEUo11NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kLEUoF1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kLEUoV1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kLEUol1NEemImYeM5hMuZQ" name="component" type="_dOSlMF1MEemImYeM5hMuZQ" association="_kK6joF1NEemImYeM5hMuZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kLEUo11NEemImYeM5hMuZQ" name="icon" type="_E1jqUF1NEemImYeM5hMuZQ" association="_kK6joF1NEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_k6KPQF1NEemImYeM5hMuZQ" memberEnd="_k6KPQ11NEemImYeM5hMuZQ _k6KPRF1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_k6KPQV1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_k6KPQl1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_k6KPQ11NEemImYeM5hMuZQ" name="component" type="_dOSlMF1MEemImYeM5hMuZQ" association="_k6KPQF1NEemImYeM5hMuZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_k6KPRF1NEemImYeM5hMuZQ" name="card" type="_oOProF1MEemImYeM5hMuZQ" association="_k6KPQF1NEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_l9q6sF1NEemImYeM5hMuZQ" memberEnd="_l90rsl1NEemImYeM5hMuZQ _l90rs11NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_l90rsF1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_l90rsV1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_l90rsl1NEemImYeM5hMuZQ" name="component" type="_dOSlMF1MEemImYeM5hMuZQ" association="_l9q6sF1NEemImYeM5hMuZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_l90rs11NEemImYeM5hMuZQ" name="form" type="_FuQz8F1NEemImYeM5hMuZQ" association="_l9q6sF1NEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_m9UZ0F1NEemImYeM5hMuZQ" memberEnd="_m9UZ011NEemImYeM5hMuZQ _m9djwF1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_m9UZ0V1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m9UZ0l1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_m9UZ011NEemImYeM5hMuZQ" name="component" type="_dOSlMF1MEemImYeM5hMuZQ" association="_m9UZ0F1NEemImYeM5hMuZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_m9djwF1NEemImYeM5hMuZQ" name="databinding" type="_pOb9UF1MEemImYeM5hMuZQ" association="_m9UZ0F1NEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_nvYv8F1NEemImYeM5hMuZQ" memberEnd="_nvYv811NEemImYeM5hMuZQ _nvig8F1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nvYv8V1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nvYv8l1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_nvYv811NEemImYeM5hMuZQ" name="component" type="_dOSlMF1MEemImYeM5hMuZQ" association="_nvYv8F1NEemImYeM5hMuZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_nvig8F1NEemImYeM5hMuZQ" name="directive" type="_qdua8F1MEemImYeM5hMuZQ" association="_nvYv8F1NEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_qogSIF1NEemImYeM5hMuZQ" memberEnd="_qogSI11NEemImYeM5hMuZQ _qopcEF1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qogSIV1NEemImYeM5hMuZQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qogSIl1NEemImYeM5hMuZQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_qogSI11NEemImYeM5hMuZQ" name="component" type="_dOSlMF1MEemImYeM5hMuZQ" association="_qogSIF1NEemImYeM5hMuZQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_qopcEF1NEemImYeM5hMuZQ" name="text" type="_gt_mQF1MEemImYeM5hMuZQ" association="_qogSIF1NEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_8691gF1QEemImYeM5hMuZQ" name="addMovie.component">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_PPHiUF1REemImYeM5hMuZQ" name="grid" classifier="_jXAP4F1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_hSkgsF1REemImYeM5hMuZQ" name="h1" classifier="_gt_mQF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_3fCi4F1REemImYeM5hMuZQ" name="form" classifier="_FuQz8F1NEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_DBFpwF1SEemImYeM5hMuZQ" name="movie_title" classifier="_1BD20F1MEemImYeM5hMuZQ">
+        <slot xmi:type="uml:Slot" xmi:id="_yxJa8V1SEemImYeM5hMuZQ" definingFeature="_aZQcU11NEemImYeM5hMuZQ">
+          <value xmi:type="uml:InstanceValue" xmi:id="_yxSk4F1SEemImYeM5hMuZQ" name="InstanceValue0" type="_FuQz8F1NEemImYeM5hMuZQ" instance="_3fCi4F1REemImYeM5hMuZQ"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NS8UEF1SEemImYeM5hMuZQ" name="movie_genre" classifier="_1BD20F1MEemImYeM5hMuZQ">
+        <slot xmi:type="uml:Slot" xmi:id="_4ABTkV1SEemImYeM5hMuZQ" definingFeature="_aZQcU11NEemImYeM5hMuZQ">
+          <value xmi:type="uml:InstanceValue" xmi:id="_4ABTkl1SEemImYeM5hMuZQ" name="InstanceValue0" type="_FuQz8F1NEemImYeM5hMuZQ" instance="_3fCi4F1REemImYeM5hMuZQ"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Q55MoF1SEemImYeM5hMuZQ" name="movie_director" classifier="_1BD20F1MEemImYeM5hMuZQ">
+        <slot xmi:type="uml:Slot" xmi:id="_5sYHsV1SEemImYeM5hMuZQ" definingFeature="_aZQcU11NEemImYeM5hMuZQ">
+          <value xmi:type="uml:InstanceValue" xmi:id="_5sYHsl1SEemImYeM5hMuZQ" name="InstanceValue0" type="_FuQz8F1NEemImYeM5hMuZQ" instance="_3fCi4F1REemImYeM5hMuZQ"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_dm9VIF1SEemImYeM5hMuZQ" name="add" classifier="_eiWOEF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_qBN2YF1SEemImYeM5hMuZQ" name="cancel" classifier="_eiWOEF1MEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_w2LjEF1SEemImYeM5hMuZQ" name="InstanceSpecification45">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xPhQIF1SEemImYeM5hMuZQ" source="InstanceEnd" references="_PPHiUF1REemImYeM5hMuZQ _3fCi4F1REemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_x0Ze0F1SEemImYeM5hMuZQ" name="InstanceSpecification46" classifier="_aZQcUF1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yxJa8F1SEemImYeM5hMuZQ" source="InstanceEnd" references="_3fCi4F1REemImYeM5hMuZQ _DBFpwF1SEemImYeM5hMuZQ"/>
+      <slot xmi:type="uml:Slot" xmi:id="_yxSk4V1SEemImYeM5hMuZQ" definingFeature="_aZQcVl1NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_yxSk4l1SEemImYeM5hMuZQ" name="InstanceValue0" type="_1BD20F1MEemImYeM5hMuZQ" instance="_DBFpwF1SEemImYeM5hMuZQ"/>
+      </slot>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_0k8T0F1SEemImYeM5hMuZQ" name="InstanceSpecification47">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_08ClMF1SEemImYeM5hMuZQ" source="InstanceEnd" references="_3fCi4F1REemImYeM5hMuZQ _dm9VIF1SEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_3pN9IF1SEemImYeM5hMuZQ" name="InstanceSpecification48" classifier="_aZQcUF1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4ABTkF1SEemImYeM5hMuZQ" source="InstanceEnd" references="_3fCi4F1REemImYeM5hMuZQ _NS8UEF1SEemImYeM5hMuZQ"/>
+      <slot xmi:type="uml:Slot" xmi:id="_4ABTk11SEemImYeM5hMuZQ" definingFeature="_aZQcVl1NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_4ABTlF1SEemImYeM5hMuZQ" name="InstanceValue0" type="_1BD20F1MEemImYeM5hMuZQ" instance="_NS8UEF1SEemImYeM5hMuZQ"/>
+      </slot>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_5Ot7UF1SEemImYeM5hMuZQ" name="InstanceSpecification49" classifier="_aZQcUF1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5sYHsF1SEemImYeM5hMuZQ" source="InstanceEnd" references="_3fCi4F1REemImYeM5hMuZQ _Q55MoF1SEemImYeM5hMuZQ"/>
+      <slot xmi:type="uml:Slot" xmi:id="_5shRoF1SEemImYeM5hMuZQ" definingFeature="_aZQcVl1NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_5shRoV1SEemImYeM5hMuZQ" name="InstanceValue0" type="_1BD20F1MEemImYeM5hMuZQ" instance="_Q55MoF1SEemImYeM5hMuZQ"/>
+      </slot>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_6TH-oF1SEemImYeM5hMuZQ" name="InstanceSpecification50">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6wfQEF1SEemImYeM5hMuZQ" source="InstanceEnd" references="_3fCi4F1REemImYeM5hMuZQ _qBN2YF1SEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_L0fjoF1TEemImYeM5hMuZQ" name="movie.component">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_iFOawF1TEemImYeM5hMuZQ" name="container" classifier="_iAkBYF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_sdcy0F1TEemImYeM5hMuZQ" name="grid" classifier="_jXAP4F1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_41-OsF1TEemImYeM5hMuZQ" name="card" classifier="_oOProF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_8EkRoF1TEemImYeM5hMuZQ" name="card_body" classifier="_oOProF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_CLRKIF1UEemImYeM5hMuZQ" name="card_title" classifier="_oOProF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_TCe-4F1UEemImYeM5hMuZQ" name="add_movie" classifier="_eiWOEF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_cYQmAF1VEemImYeM5hMuZQ" name="movie_list" classifier="_fnWuUF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_kjTXAF1kEemImYeM5hMuZQ" name="h5" classifier="_gt_mQF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_2Z_LAF4wEemImYeM5hMuZQ" name="card_image" classifier="_oOProF1MEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_CgaeQF1VEemImYeM5hMuZQ" name="InstanceSpecification52">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_C2xIwF1VEemImYeM5hMuZQ" source="InstanceEnd" references="_iFOawF1TEemImYeM5hMuZQ _sdcy0F1TEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_EBl9IF1VEemImYeM5hMuZQ" name="InstanceSpecification53">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EbHQYF1VEemImYeM5hMuZQ" source="InstanceEnd" references="_sdcy0F1TEemImYeM5hMuZQ _41-OsF1TEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_mXnyIF1VEemImYeM5hMuZQ" name="InstanceSpecification58">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_myaQsF1VEemImYeM5hMuZQ" source="InstanceEnd" references="_sdcy0F1TEemImYeM5hMuZQ _cYQmAF1VEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_-G8uMF1VEemImYeM5hMuZQ" name="movielist.component">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_i_rJcF1WEemImYeM5hMuZQ" name="card" classifier="_oOProF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_wkUaMF1WEemImYeM5hMuZQ" name="allmovies" classifier="_qdua8F1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_bDJ3cF1ZEemImYeM5hMuZQ" name="card_text" classifier="_oOProF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_g3AscF1ZEemImYeM5hMuZQ" name="card_body" classifier="_oOProF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_xI1VIF1ZEemImYeM5hMuZQ" name="title" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_5QXc8F1ZEemImYeM5hMuZQ" name="genre" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_-N9_YF1ZEemImYeM5hMuZQ" name="director" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Mi9H8F1aEemImYeM5hMuZQ" name="card_footer" classifier="_oOProF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_UfrG4F1aEemImYeM5hMuZQ" name="movie_trash" classifier="_E1jqUF1NEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_d4XUkF1aEemImYeM5hMuZQ" name="movie_likes" classifier="_E1jqUF1NEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_aA0YEF1WEemImYeM5hMuZQ" name="InstanceSpecification60">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aWSRwF1WEemImYeM5hMuZQ" source="InstanceEnd" references="_cYQmAF1VEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Bo5_wF1bEemImYeM5hMuZQ" name="InstanceSpecification61">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_B_tWMF1bEemImYeM5hMuZQ" source="InstanceEnd" references="_i_rJcF1WEemImYeM5hMuZQ _wkUaMF1WEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_DqtfcF1bEemImYeM5hMuZQ" name="InstanceSpecification62">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EDADoF1bEemImYeM5hMuZQ" source="InstanceEnd" references="_bDJ3cF1ZEemImYeM5hMuZQ _xI1VIF1ZEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_E-BhcF1bEemImYeM5hMuZQ" name="InstanceSpecification63">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FUEp8F1bEemImYeM5hMuZQ" source="InstanceEnd" references="_bDJ3cF1ZEemImYeM5hMuZQ _5QXc8F1ZEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_F_mTMF1bEemImYeM5hMuZQ" name="InstanceSpecification64">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GWGHoF1bEemImYeM5hMuZQ" source="InstanceEnd" references="_bDJ3cF1ZEemImYeM5hMuZQ _-N9_YF1ZEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_JvTfIF1bEemImYeM5hMuZQ" name="InstanceSpecification65">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KGsrcF1bEemImYeM5hMuZQ" source="InstanceEnd" references="_wkUaMF1WEemImYeM5hMuZQ _g3AscF1ZEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_MHYJwF1bEemImYeM5hMuZQ" name="InstanceSpecification66">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_McPmgF1bEemImYeM5hMuZQ" source="InstanceEnd" references="_i_rJcF1WEemImYeM5hMuZQ _Mi9H8F1aEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_QobTEF1bEemImYeM5hMuZQ" name="InstanceSpecification67">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RBnPIF1bEemImYeM5hMuZQ" source="InstanceEnd" references="_Mi9H8F1aEemImYeM5hMuZQ _UfrG4F1aEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_TsGfcF1bEemImYeM5hMuZQ" name="InstanceSpecification68">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UBjyEF1bEemImYeM5hMuZQ" source="InstanceEnd" references="_Mi9H8F1aEemImYeM5hMuZQ _d4XUkF1aEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_NNj5QF1cEemImYeM5hMuZQ" name="moviedetails.component">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_r2ApQF1cEemImYeM5hMuZQ" name="moviedetail" classifier="_dOSlMF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_wRShwF1cEemImYeM5hMuZQ" name="h1" classifier="_gt_mQF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_5andwF1cEemImYeM5hMuZQ" name="m_title" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_-dStcF1cEemImYeM5hMuZQ" name="m_genre" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_K-LbIF1dEemImYeM5hMuZQ" name="m_director" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Vk6JQF1dEemImYeM5hMuZQ" name="m_author" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_dXy2wF1dEemImYeM5hMuZQ" name="m_date" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_31D_wF1dEemImYeM5hMuZQ" name="movie_reviews" classifier="_fnWuUF1MEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_SuOakF1eEemImYeM5hMuZQ" name="InstanceSpecification70" classifier="_m9UZ0F1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TK_PEF1eEemImYeM5hMuZQ" source="InstanceEnd" references="_r2ApQF1cEemImYeM5hMuZQ _5andwF1cEemImYeM5hMuZQ"/>
+      <slot xmi:type="uml:Slot" xmi:id="_TK_PEV1eEemImYeM5hMuZQ" definingFeature="_m9UZ011NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_TK_PEl1eEemImYeM5hMuZQ" name="InstanceValue0" type="_dOSlMF1MEemImYeM5hMuZQ" instance="_r2ApQF1cEemImYeM5hMuZQ"/>
+      </slot>
+      <slot xmi:type="uml:Slot" xmi:id="_TK_PE11eEemImYeM5hMuZQ" definingFeature="_m9djwF1NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_TK_PFF1eEemImYeM5hMuZQ" name="InstanceValue0" type="_pOb9UF1MEemImYeM5hMuZQ" instance="_5andwF1cEemImYeM5hMuZQ"/>
+      </slot>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_VUstkF1eEemImYeM5hMuZQ" name="InstanceSpecification71" classifier="_m9UZ0F1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cEzvcF1eEemImYeM5hMuZQ" source="InstanceEnd" references="_r2ApQF1cEemImYeM5hMuZQ _-dStcF1cEemImYeM5hMuZQ"/>
+      <slot xmi:type="uml:Slot" xmi:id="_cEzvcV1eEemImYeM5hMuZQ" definingFeature="_m9UZ011NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_cEzvcl1eEemImYeM5hMuZQ" name="InstanceValue0" type="_dOSlMF1MEemImYeM5hMuZQ" instance="_r2ApQF1cEemImYeM5hMuZQ"/>
+      </slot>
+      <slot xmi:type="uml:Slot" xmi:id="_cEzvc11eEemImYeM5hMuZQ" definingFeature="_m9djwF1NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_cEzvdF1eEemImYeM5hMuZQ" name="InstanceValue0" type="_pOb9UF1MEemImYeM5hMuZQ" instance="_-dStcF1cEemImYeM5hMuZQ"/>
+      </slot>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_dRHKgF1eEemImYeM5hMuZQ" name="InstanceSpecification72" classifier="_m9UZ0F1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dp2aoF1eEemImYeM5hMuZQ" source="InstanceEnd" references="_r2ApQF1cEemImYeM5hMuZQ _K-LbIF1dEemImYeM5hMuZQ"/>
+      <slot xmi:type="uml:Slot" xmi:id="_dp2aoV1eEemImYeM5hMuZQ" definingFeature="_m9UZ011NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_dp2aol1eEemImYeM5hMuZQ" name="InstanceValue0" type="_dOSlMF1MEemImYeM5hMuZQ" instance="_r2ApQF1cEemImYeM5hMuZQ"/>
+      </slot>
+      <slot xmi:type="uml:Slot" xmi:id="_dp2ao11eEemImYeM5hMuZQ" definingFeature="_m9djwF1NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_dp2apF1eEemImYeM5hMuZQ" name="InstanceValue0" type="_pOb9UF1MEemImYeM5hMuZQ" instance="_K-LbIF1dEemImYeM5hMuZQ"/>
+      </slot>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_eYWfYF1eEemImYeM5hMuZQ" name="InstanceSpecification73" classifier="_m9UZ0F1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_etzyAF1eEemImYeM5hMuZQ" source="InstanceEnd" references="_r2ApQF1cEemImYeM5hMuZQ _Vk6JQF1dEemImYeM5hMuZQ"/>
+      <slot xmi:type="uml:Slot" xmi:id="_et9jAF1eEemImYeM5hMuZQ" definingFeature="_m9UZ011NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_et9jAV1eEemImYeM5hMuZQ" name="InstanceValue0" type="_dOSlMF1MEemImYeM5hMuZQ" instance="_r2ApQF1cEemImYeM5hMuZQ"/>
+      </slot>
+      <slot xmi:type="uml:Slot" xmi:id="_et9jAl1eEemImYeM5hMuZQ" definingFeature="_m9djwF1NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_et9jA11eEemImYeM5hMuZQ" name="InstanceValue0" type="_pOb9UF1MEemImYeM5hMuZQ" instance="_Vk6JQF1dEemImYeM5hMuZQ"/>
+      </slot>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_gFJYYF1eEemImYeM5hMuZQ" name="InstanceSpecification74" classifier="_m9UZ0F1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gq_3cF1eEemImYeM5hMuZQ" source="InstanceEnd" references="_r2ApQF1cEemImYeM5hMuZQ _dXy2wF1dEemImYeM5hMuZQ"/>
+      <slot xmi:type="uml:Slot" xmi:id="_gq_3cV1eEemImYeM5hMuZQ" definingFeature="_m9UZ011NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_gq_3cl1eEemImYeM5hMuZQ" name="InstanceValue0" type="_dOSlMF1MEemImYeM5hMuZQ" instance="_r2ApQF1cEemImYeM5hMuZQ"/>
+      </slot>
+      <slot xmi:type="uml:Slot" xmi:id="_gq_3c11eEemImYeM5hMuZQ" definingFeature="_m9djwF1NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_gq_3dF1eEemImYeM5hMuZQ" name="InstanceValue0" type="_pOb9UF1MEemImYeM5hMuZQ" instance="_dXy2wF1dEemImYeM5hMuZQ"/>
+      </slot>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_j-CVgF1eEemImYeM5hMuZQ" name="InstanceSpecification75">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oxonYF1eEemImYeM5hMuZQ" source="InstanceEnd" references="_31D_wF1dEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_rD16kF1eEemImYeM5hMuZQ" name="InstanceSpecification76">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_riHK8F1eEemImYeM5hMuZQ" source="InstanceEnd" references="_31D_wF1dEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_-K1ZkF1eEemImYeM5hMuZQ" name="moviereviews.component">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_jcq4YF1fEemImYeM5hMuZQ" name="h4" classifier="_gt_mQF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_xmG4QF1fEemImYeM5hMuZQ" name="allreviews" classifier="_qdua8F1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_-Ml3oF1fEemImYeM5hMuZQ" name="card" classifier="_oOProF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_J34aEF1gEemImYeM5hMuZQ" name="card_body" classifier="_oOProF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_XPQq4F1gEemImYeM5hMuZQ" name="rating" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_h5IMkF1gEemImYeM5hMuZQ" name="content" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_lnQEIF1gEemImYeM5hMuZQ" name="author" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_pjbl0F1gEemImYeM5hMuZQ" name="date_created" classifier="_pOb9UF1MEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_eDzrYF1hEemImYeM5hMuZQ" name="addreview" classifier="_fnWuUF1MEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_09UPMF1gEemImYeM5hMuZQ" name="InstanceSpecification78">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1uNgoF1gEemImYeM5hMuZQ" source="InstanceEnd" references="_xmG4QF1fEemImYeM5hMuZQ _-Ml3oF1fEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_3L8p8F1gEemImYeM5hMuZQ" name="InstanceSpecification79">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3wm2MF1gEemImYeM5hMuZQ" source="InstanceEnd" references="_-Ml3oF1fEemImYeM5hMuZQ _J34aEF1gEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_6n6agF1gEemImYeM5hMuZQ" name="InstanceSpecification80">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7EFZIF1gEemImYeM5hMuZQ" source="InstanceEnd" references="_J34aEF1gEemImYeM5hMuZQ _XPQq4F1gEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_A0DMoF1hEemImYeM5hMuZQ" name="InstanceSpecification81">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BKtZIF1hEemImYeM5hMuZQ" source="InstanceEnd" references="_J34aEF1gEemImYeM5hMuZQ _h5IMkF1gEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_IMBfwF1hEemImYeM5hMuZQ" name="InstanceSpecification82">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IkBJAF1hEemImYeM5hMuZQ" source="InstanceEnd" references="_J34aEF1gEemImYeM5hMuZQ _lnQEIF1gEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_J3LaAF1hEemImYeM5hMuZQ" name="InstanceSpecification83">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KMWYwF1hEemImYeM5hMuZQ" source="InstanceEnd" references="_J34aEF1gEemImYeM5hMuZQ _pjbl0F1gEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_zdK1oF1hEemImYeM5hMuZQ" name="InstanceSpecification84">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z1UP4F1hEemImYeM5hMuZQ" source="InstanceEnd" references="_eDzrYF1hEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_qcbBsF3AEemImYeM5hMuZQ" name="InstanceSpecification86">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rACsIF3AEemImYeM5hMuZQ" source="InstanceEnd" references="_g3AscF1ZEemImYeM5hMuZQ _bDJ3cF1ZEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_MHyTAF4XEemImYeM5hMuZQ" name="InstanceSpecification84">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NPUi0F4XEemImYeM5hMuZQ" source="InstanceEnd" references="_8EkRoF1TEemImYeM5hMuZQ _CLRKIF1UEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_gLZyUF4XEemImYeM5hMuZQ" name="InstanceSpecification85">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_go60wF4XEemImYeM5hMuZQ" source="InstanceEnd" references="_8EkRoF1TEemImYeM5hMuZQ _kjTXAF1kEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_iNhbEF4XEemImYeM5hMuZQ" name="InstanceSpecification86">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_im2hEF4XEemImYeM5hMuZQ" source="InstanceEnd" references="_8EkRoF1TEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_nKSlIF4ZEemImYeM5hMuZQ" name="InstanceSpecification86">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oNzQkF4ZEemImYeM5hMuZQ" source="InstanceEnd" references="_41-OsF1TEemImYeM5hMuZQ _8EkRoF1TEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_scwkUF4ZEemImYeM5hMuZQ" name="InstanceSpecification87">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tBRmoF4ZEemImYeM5hMuZQ" source="InstanceEnd" references="_8EkRoF1TEemImYeM5hMuZQ _TCe-4F1UEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_KnK2AF4xEemImYeM5hMuZQ" name="InstanceSpecification87">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LIah4F4xEemImYeM5hMuZQ" source="InstanceEnd" references="_8EkRoF1TEemImYeM5hMuZQ _2Z_LAF4wEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_8_DkEF48EemImYeM5hMuZQ" name="listMovies" operation="_7VGbA108EemImYeM5hMuZQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_py93wF4-EemImYeM5hMuZQ" name="createMovie" operation="_kvnxDF0-EemImYeM5hMuZQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_kgLbwF57EemImYeM5hMuZQ" name="fetchMovie" operation="_7VGbAF08EemImYeM5hMuZQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_ZPRHMF6GEemImYeM5hMuZQ" name="deleteMovie" operation="_kvnxCV0-EemImYeM5hMuZQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_4pU2IF6NEemImYeM5hMuZQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_nMrm0F6SEemImYeM5hMuZQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_bnzeUF6mEemImYeM5hMuZQ" name="updateMovie" operation="_kvnxAF0-EemImYeM5hMuZQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_mlqDkF_FEemue7kLEzKvlg" name="subscribeToNewMovie" operation="_lKmZol06EemImYeM5hMuZQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_-JSQgF_GEemue7kLEzKvlg" name="subscribeToNewMovie"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_cxWeoF_KEemue7kLEzKvlg" name="subscribeToNewReview" operation="_lKmZoF06EemImYeM5hMuZQ"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="_EIlE0GR6EemWfd3qIX4cjg" name="addReview.component">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_HkQsEGR7EemWfd3qIX4cjg" name="form" classifier="_FuQz8F1NEemImYeM5hMuZQ"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_QXqbYGR7EemWfd3qIX4cjg" name="rating" classifier="_1BD20F1MEemImYeM5hMuZQ">
+        <slot xmi:type="uml:Slot" xmi:id="_JCsjgGR8EemWfd3qIX4cjg" definingFeature="_aZQcU11NEemImYeM5hMuZQ">
+          <value xmi:type="uml:InstanceValue" xmi:id="_JCsjgWR8EemWfd3qIX4cjg" name="InstanceValue0" type="_FuQz8F1NEemImYeM5hMuZQ" instance="_HkQsEGR7EemWfd3qIX4cjg"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_W9I6kGR7EemWfd3qIX4cjg" name="review" classifier="_1BD20F1MEemImYeM5hMuZQ">
+        <slot xmi:type="uml:Slot" xmi:id="_Lt3wUWR8EemWfd3qIX4cjg" definingFeature="_aZQcU11NEemImYeM5hMuZQ">
+          <value xmi:type="uml:InstanceValue" xmi:id="_Lt3wUmR8EemWfd3qIX4cjg" name="InstanceValue0" type="_FuQz8F1NEemImYeM5hMuZQ" instance="_HkQsEGR7EemWfd3qIX4cjg"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_sBT38GR7EemWfd3qIX4cjg" name="addReview" classifier="_eiWOEF1MEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_IhR4gGR8EemWfd3qIX4cjg" name="InstanceSpecification99" classifier="_aZQcUF1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JCOpcGR8EemWfd3qIX4cjg" source="InstanceEnd" references="_HkQsEGR7EemWfd3qIX4cjg _QXqbYGR7EemWfd3qIX4cjg"/>
+      <slot xmi:type="uml:Slot" xmi:id="_JCsjgmR8EemWfd3qIX4cjg" definingFeature="_aZQcVl1NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_JCsjg2R8EemWfd3qIX4cjg" name="InstanceValue0" type="_1BD20F1MEemImYeM5hMuZQ" instance="_QXqbYGR7EemWfd3qIX4cjg"/>
+      </slot>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_LJ780GR8EemWfd3qIX4cjg" name="InstanceSpecification100" classifier="_aZQcUF1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Lt3wUGR8EemWfd3qIX4cjg" source="InstanceEnd" references="_HkQsEGR7EemWfd3qIX4cjg _W9I6kGR7EemWfd3qIX4cjg"/>
+      <slot xmi:type="uml:Slot" xmi:id="_Lt3wU2R8EemWfd3qIX4cjg" definingFeature="_aZQcVl1NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_Lt3wVGR8EemWfd3qIX4cjg" name="InstanceValue0" type="_1BD20F1MEemImYeM5hMuZQ" instance="_W9I6kGR7EemWfd3qIX4cjg"/>
+      </slot>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_NQk5MGR8EemWfd3qIX4cjg" name="InstanceSpecification101">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N_vsUGR8EemWfd3qIX4cjg" source="InstanceEnd" references="_HkQsEGR7EemWfd3qIX4cjg _sBT38GR7EemWfd3qIX4cjg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_GsWvMGrHEemnVICEQtCLkA" name="InstanceSpecification102" classifier="_SV4bwF1NEemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HFirQGrHEemnVICEQtCLkA" source="InstanceEnd" references="_r2ApQF1cEemImYeM5hMuZQ _31D_wF1dEemImYeM5hMuZQ"/>
+      <slot xmi:type="uml:Slot" xmi:id="_HFirQWrHEemnVICEQtCLkA" definingFeature="_SV4bw11NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_HFirQmrHEemnVICEQtCLkA" name="InstanceValue0" type="_dOSlMF1MEemImYeM5hMuZQ" instance="_r2ApQF1cEemImYeM5hMuZQ"/>
+      </slot>
+      <slot xmi:type="uml:Slot" xmi:id="_HFirQ2rHEemnVICEQtCLkA" definingFeature="_SWBlsV1NEemImYeM5hMuZQ">
+        <value xmi:type="uml:InstanceValue" xmi:id="_HFirRGrHEemnVICEQtCLkA" name="InstanceValue0" type="_fnWuUF1MEemImYeM5hMuZQ" instance="_31D_wF1dEemImYeM5hMuZQ"/>
+      </slot>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_SAq8EGrHEemnVICEQtCLkA" name="InstanceSpecification103">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SloDQGrHEemnVICEQtCLkA" source="InstanceEnd" references="_xmG4QF1fEemImYeM5hMuZQ _eDzrYF1hEemImYeM5hMuZQ"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_edwZEF04EemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_m3UbkGtbEemFztDUFtgMxA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m3UbkWtbEemFztDUFtgMxA" key="Version" value="0.0.165"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m3UbkmtbEemFztDUFtgMxA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m3Ubk2tbEemFztDUFtgMxA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m3UblGtbEemFztDUFtgMxA" key="Date" value="2019-04-30"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m3UblWtbEemFztDUFtgMxA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_edwZEV04EemImYeM5hMuZQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../ServerlessDDProfile/ServerlessDDProfile.profile.uml#_3mQTgWtaEemFztDUFtgMxA"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="../ServerlessDDProfile/ServerlessDDProfile.profile.uml#_zYO6oE5gEemTD46Gp8i3OQ"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_edwZGF04EemImYeM5hMuZQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_m4ECcGtbEemFztDUFtgMxA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m4ECcWtbEemFztDUFtgMxA" key="Version" value="0.0.165"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m4ECcmtbEemFztDUFtgMxA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m4ECc2tbEemFztDUFtgMxA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m4ECdGtbEemFztDUFtgMxA" key="Date" value="2019-04-30"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_m4ECdWtbEemFztDUFtgMxA" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_edwZGV04EemImYeM5hMuZQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../ServerlessDDProfile/ServerlessDDProfile.profile.uml#_9qQdUGtaEemFztDUFtgMxA"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="../ServerlessDDProfile/ServerlessDDProfile.profile.uml#_34R-YE5gEemTD46Gp8i3OQ"/>
+    </profileApplication>
+  </uml:Model>
+  <SDDProfile:RootType xmi:id="_7db70F01EemImYeM5hMuZQ" Operations="_7VGbA108EemImYeM5hMuZQ _7VGbAF08EemImYeM5hMuZQ" base_InstanceSpecification="_AcN_cF01EemImYeM5hMuZQ"/>
+  <SDDProfile:RootType xmi:id="_8eH8wF01EemImYeM5hMuZQ" Operations="_kvnxDF0-EemImYeM5hMuZQ _kvenEF0-EemImYeM5hMuZQ _kvnxCV0-EemImYeM5hMuZQ _kvnxAF0-EemImYeM5hMuZQ" base_InstanceSpecification="_pChfsF01EemImYeM5hMuZQ"/>
+  <SDDProfile:RootType xmi:id="_9nJaUF01EemImYeM5hMuZQ" Operations="_lKmZol06EemImYeM5hMuZQ _lKmZoF06EemImYeM5hMuZQ" base_InstanceSpecification="_sqlykF01EemImYeM5hMuZQ"/>
+  <SDDProfile:ObjectType xmi:id="_MCN8wF02EemImYeM5hMuZQ" Object_Fields="_E9jVQF04EemImYeM5hMuZQ _E9jVRl04EemImYeM5hMuZQ _E9jVQl04EemImYeM5hMuZQ _E9jVRF04EemImYeM5hMuZQ _E9jVQV04EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ _Rh3KYF04EemImYeM5hMuZQ" base_InstanceSpecification="_E1yyUF02EemImYeM5hMuZQ"/>
+  <SDDProfile:ObjectType xmi:id="_NFbtQF02EemImYeM5hMuZQ" Object_Fields="_jriQEV05EemImYeM5hMuZQ _jriQEl05EemImYeM5hMuZQ _jriQEF05EemImYeM5hMuZQ _jriQE105EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ" base_InstanceSpecification="_HzZy8F02EemImYeM5hMuZQ"/>
+  <SDDProfile:ObjectType xmi:id="_hV2ScF02EemImYeM5hMuZQ" Object_Fields="_-aV1AF05EemImYeM5hMuZQ __0XYcF04EemImYeM5hMuZQ" base_InstanceSpecification="_dkKJgF02EemImYeM5hMuZQ"/>
+  <SDDProfile:ObjectType xmi:id="_jFZkgF02EemImYeM5hMuZQ" Object_Fields="_NgfxQF05EemImYeM5hMuZQ __0XYcF04EemImYeM5hMuZQ" base_InstanceSpecification="_UFwVYF02EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_idaskF04EemImYeM5hMuZQ" base_Property="_E9jVQF04EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_klNfgF04EemImYeM5hMuZQ" base_Property="_E9jVRl04EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_m8MlAF04EemImYeM5hMuZQ" base_Property="_E9jVQl04EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_pho9QF04EemImYeM5hMuZQ" base_Property="_E9jVRF04EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_s0i4cF04EemImYeM5hMuZQ" base_Property="_E9jVQV04EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_wkTHsF04EemImYeM5hMuZQ" base_Property="_E9jVRV04EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_1d4s0F04EemImYeM5hMuZQ" base_Property="_E9jVQ104EemImYeM5hMuZQ"/>
+  <SDDProfile:Arguments xmi:id="_428TUF04EemImYeM5hMuZQ" Arguments="__0XYcV04EemImYeM5hMuZQ __0XYcF04EemImYeM5hMuZQ" base_Property="_Rh3KYF04EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_O1J3EF05EemImYeM5hMuZQ" Select_TypeModifier="List" base_Property="_NgfxQF05EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_l5ul8F05EemImYeM5hMuZQ" base_Property="_jriQEV05EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_oQlIkF05EemImYeM5hMuZQ" base_Property="_jriQEl05EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_qmX7QF05EemImYeM5hMuZQ" base_Property="_jriQEF05EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_s5WqgF05EemImYeM5hMuZQ" base_Property="_jriQE105EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_N0RsEF09EemImYeM5hMuZQ" base_Parameter="_7VGbAV08EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_pVODIF0-EemImYeM5hMuZQ" base_Parameter="_kvnxDV0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_qlZ4oF0-EemImYeM5hMuZQ" base_Parameter="_kvnxDl0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_s-7UwF0-EemImYeM5hMuZQ" base_Parameter="_kvnxD10-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_uX3doF0-EemImYeM5hMuZQ" base_Parameter="_kvnxEF0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_wSsyoF0-EemImYeM5hMuZQ" base_Parameter="_kvnxEV0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_yV2WIF0-EemImYeM5hMuZQ" base_Parameter="_kvnxEl0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_z0zAYF0-EemImYeM5hMuZQ" base_Parameter="_kvnxE10-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_2pTIUF0-EemImYeM5hMuZQ" base_Parameter="_kvenEV0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_3_5u4F0-EemImYeM5hMuZQ" base_Parameter="_kvenEl0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_5RcPQF0-EemImYeM5hMuZQ" base_Parameter="_kvenE10-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_6jtvcF0-EemImYeM5hMuZQ" base_Parameter="_kvenFF0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_7uwmQF0-EemImYeM5hMuZQ" base_Parameter="_kvenFV0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_9HabQF0-EemImYeM5hMuZQ" base_Parameter="_kvenFl0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="__dlocF0-EemImYeM5hMuZQ" base_Parameter="_kvnxCl0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_C8uo0F0_EemImYeM5hMuZQ" base_Parameter="_kvnxAV0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_FdcSEF0_EemImYeM5hMuZQ" base_Parameter="_kvnxBV0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Type_Modifier xmi:id="_Gytb4F0_EemImYeM5hMuZQ" base_Parameter="_kvnxBl0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Request_Data xmi:id="_NsxrAF0_EemImYeM5hMuZQ" Fields="_E9jVQF04EemImYeM5hMuZQ _E9jVRl04EemImYeM5hMuZQ _E9jVQl04EemImYeM5hMuZQ _E9jVRF04EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ _E9jVQV04EemImYeM5hMuZQ _Rh3KYF04EemImYeM5hMuZQ" base_Operation="_kvnxDF0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Request_Data xmi:id="_jKfJwF0_EemImYeM5hMuZQ" Fields="_jriQEl05EemImYeM5hMuZQ _jriQEV05EemImYeM5hMuZQ _jriQEF05EemImYeM5hMuZQ _jriQE105EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ" base_Operation="_kvenEF0-EemImYeM5hMuZQ"/>
+  <SDDProfile:CustomElement xmi:id="_INAR0F1OEemImYeM5hMuZQ" name="amplify-authenticator" base_InstanceSpecification="_YRVjAF1MEemImYeM5hMuZQ"/>
+  <SDDProfile:Request_Data xmi:id="_cOQZoF1OEemImYeM5hMuZQ" Fields="_E9jVQF04EemImYeM5hMuZQ _E9jVRl04EemImYeM5hMuZQ _E9jVQl04EemImYeM5hMuZQ _E9jVRF04EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ _Rh3KYF04EemImYeM5hMuZQ" base_Operation="_kvnxCV0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Request_Data xmi:id="_mGSOsF1OEemImYeM5hMuZQ" Fields="_E9jVQF04EemImYeM5hMuZQ _E9jVRl04EemImYeM5hMuZQ _E9jVQl04EemImYeM5hMuZQ _E9jVRF04EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ _E9jVQV04EemImYeM5hMuZQ" base_Operation="_kvnxAF0-EemImYeM5hMuZQ"/>
+  <SDDProfile:Request_Data xmi:id="_vKahoF1OEemImYeM5hMuZQ" Fields="_BiMIoF9cEemDkbkV0eWFsg" base_Operation="_7VGbA108EemImYeM5hMuZQ"/>
+  <SDDProfile:Request_Data xmi:id="_mHghQF1PEemImYeM5hMuZQ" Fields="_E9jVQF04EemImYeM5hMuZQ _E9jVRl04EemImYeM5hMuZQ _E9jVQl04EemImYeM5hMuZQ _E9jVRF04EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ _IOLroF1QEemImYeM5hMuZQ" base_Operation="_7VGbAF08EemImYeM5hMuZQ"/>
+  <SDDProfile:Grid xmi:id="_a-mBMF1REemImYeM5hMuZQ" base_InstanceSpecification="_PPHiUF1REemImYeM5hMuZQ"/>
+  <SDDProfile:Text xmi:id="_lhn7EF1REemImYeM5hMuZQ" padding="2" display="block" alignment="center" text_color="white" background_color="info" text_weight="bold" base_InstanceSpecification="_hSkgsF1REemImYeM5hMuZQ" text_name="Add Movie"/>
+  <SDDProfile:FormControl xmi:id="_8p_k0F1REemImYeM5hMuZQ" base_InstanceSpecification="_3fCi4F1REemImYeM5hMuZQ"/>
+  <SDDProfile:Button xmi:id="_kN1igF1SEemImYeM5hMuZQ" margin="2" base_InstanceSpecification="_dm9VIF1SEemImYeM5hMuZQ" button_type="button" button_text="Add Movie"/>
+  <SDDProfile:Input xmi:id="_mM86kF1SEemImYeM5hMuZQ" base_InstanceSpecification="_DBFpwF1SEemImYeM5hMuZQ" form_layout="control" type="text" placeholder_value="Type a Movie title" input_name="title" label_id="title" label_text="Title"/>
+  <SDDProfile:Input xmi:id="_njGOIF1SEemImYeM5hMuZQ" base_InstanceSpecification="_NS8UEF1SEemImYeM5hMuZQ" form_layout="control" type="text" input_name="genre" label_id="genre" label_text="Genre"/>
+  <SDDProfile:Input xmi:id="_o-Tn4F1SEemImYeM5hMuZQ" base_InstanceSpecification="_Q55MoF1SEemImYeM5hMuZQ" form_layout="control" type="text" input_name="director" label_id="director" label_text="Director"/>
+  <SDDProfile:Button xmi:id="_sBJt0F1SEemImYeM5hMuZQ" base_InstanceSpecification="_qBN2YF1SEemImYeM5hMuZQ" button_type="button" button_text="Cancel"/>
+  <SDDProfile:Container xmi:id="_l8CUQF1TEemImYeM5hMuZQ" margin_bottom="50px" padding_bottom="2" alignment="middle" base_InstanceSpecification="_iFOawF1TEemImYeM5hMuZQ" container_type="fluid"/>
+  <SDDProfile:Grid xmi:id="_uCfeAF1TEemImYeM5hMuZQ" base_InstanceSpecification="_sdcy0F1TEemImYeM5hMuZQ" grid_option="EqualWidth"/>
+  <SDDProfile:Card xmi:id="_dkK08F1UEemImYeM5hMuZQ" base_InstanceSpecification="_CLRKIF1UEemImYeM5hMuZQ" content_type="title"/>
+  <SDDProfile:Button xmi:id="_f7uiMF1UEemImYeM5hMuZQ" base_InstanceSpecification="_TCe-4F1UEemImYeM5hMuZQ" button_type="button" button_text="Add Movie"/>
+  <SDDProfile:CustomElement xmi:id="_kWN7EF1VEemImYeM5hMuZQ" name="app-movielist" base_InstanceSpecification="_cYQmAF1VEemImYeM5hMuZQ"/>
+  <SDDProfile:Card xmi:id="_kynmYF1ZEemImYeM5hMuZQ" alignment="center" base_InstanceSpecification="_i_rJcF1WEemImYeM5hMuZQ"/>
+  <SDDProfile:Card xmi:id="_l5aPUF1ZEemImYeM5hMuZQ" base_InstanceSpecification="_bDJ3cF1ZEemImYeM5hMuZQ" content_type="text"/>
+  <SDDProfile:Card xmi:id="_nEN1kF1ZEemImYeM5hMuZQ" base_InstanceSpecification="_g3AscF1ZEemImYeM5hMuZQ" content_type="body"/>
+  <SDDProfile:DataBinding xmi:id="_z-Nm0F1ZEemImYeM5hMuZQ" temp_variable="movie" base_InstanceSpecification="_xI1VIF1ZEemImYeM5hMuZQ" property_values="title"/>
+  <SDDProfile:DataBinding xmi:id="_8i92IF1ZEemImYeM5hMuZQ" temp_variable="movie" base_InstanceSpecification="_5QXc8F1ZEemImYeM5hMuZQ" property_values="genre"/>
+  <SDDProfile:DataBinding xmi:id="_B-EM4F1aEemImYeM5hMuZQ" temp_variable="movie" base_InstanceSpecification="_-N9_YF1ZEemImYeM5hMuZQ" property_values="director"/>
+  <SDDProfile:Card xmi:id="_QMR_EF1aEemImYeM5hMuZQ" base_InstanceSpecification="_Mi9H8F1aEemImYeM5hMuZQ" content_type="footer"/>
+  <SDDProfile:Icon xmi:id="_h8ZKsF1aEemImYeM5hMuZQ" icon_name="trash" base_InstanceSpecification="_UfrG4F1aEemImYeM5hMuZQ"/>
+  <SDDProfile:Icon xmi:id="_jYy3QF1aEemImYeM5hMuZQ" icon_name="thumbsup" base_InstanceSpecification="_d4XUkF1aEemImYeM5hMuZQ"/>
+  <SDDProfile:DataBinding xmi:id="_r0G2sF1aEemImYeM5hMuZQ" type="event" base_InstanceSpecification="_UfrG4F1aEemImYeM5hMuZQ"/>
+  <SDDProfile:DataBinding xmi:id="_sy2W4F1aEemImYeM5hMuZQ" temp_variable="movie" base_InstanceSpecification="_d4XUkF1aEemImYeM5hMuZQ" property_values="likes"/>
+  <SDDProfile:DataBinding xmi:id="__UNZQF1aEemImYeM5hMuZQ" type="event" event_handler="_LPFXEF7gEemImYeM5hMuZQ" base_InstanceSpecification="_bDJ3cF1ZEemImYeM5hMuZQ"/>
+  <SDDProfile:Elements xmi:id="_07EJQF1cEemImYeM5hMuZQ" border_radius="rounded" padding="1" base_InstanceSpecification="_r2ApQF1cEemImYeM5hMuZQ"/>
+  <SDDProfile:Text xmi:id="_3mOH8F1cEemImYeM5hMuZQ" base_InstanceSpecification="_wRShwF1cEemImYeM5hMuZQ" text_name="Movie Details"/>
+  <SDDProfile:DataBinding xmi:id="_k6S-4F1dEemImYeM5hMuZQ" base_InstanceSpecification="_5andwF1cEemImYeM5hMuZQ" property_values="title" collection_variable="movieById"/>
+  <SDDProfile:DataBinding xmi:id="_mACe8F1dEemImYeM5hMuZQ" base_InstanceSpecification="_-dStcF1cEemImYeM5hMuZQ" property_values="genre" collection_variable="movieById"/>
+  <SDDProfile:DataBinding xmi:id="_nWetcF1dEemImYeM5hMuZQ" base_InstanceSpecification="_K-LbIF1dEemImYeM5hMuZQ" property_values="director" collection_variable="movieById"/>
+  <SDDProfile:DataBinding xmi:id="_onj60F1dEemImYeM5hMuZQ" base_InstanceSpecification="_Vk6JQF1dEemImYeM5hMuZQ" property_values="author" collection_variable="movieById"/>
+  <SDDProfile:DataBinding xmi:id="_pZCbEF1dEemImYeM5hMuZQ" base_InstanceSpecification="_dXy2wF1dEemImYeM5hMuZQ" property_values="createdAt" collection_variable="movieById"/>
+  <SDDProfile:CustomElement xmi:id="_-QpjIF1dEemImYeM5hMuZQ" name="app-moviereviews" base_InstanceSpecification="_31D_wF1dEemImYeM5hMuZQ"/>
+  <SDDProfile:Text xmi:id="_mmB2AF1fEemImYeM5hMuZQ" border_radius="rounded" padding="2" display="block" alignment="left" text_color="white" background_color="dark" text_weight="bold" base_InstanceSpecification="_jcq4YF1fEemImYeM5hMuZQ" text_name="Reviews and Ratings"/>
+  <SDDProfile:Card xmi:id="_CzOrkF1gEemImYeM5hMuZQ" base_InstanceSpecification="_-Ml3oF1fEemImYeM5hMuZQ"/>
+  <SDDProfile:Card xmi:id="_NReMEF1gEemImYeM5hMuZQ" base_InstanceSpecification="_J34aEF1gEemImYeM5hMuZQ" content_type="body"/>
+  <SDDProfile:DataBinding xmi:id="_wBSaEF1gEemImYeM5hMuZQ" base_InstanceSpecification="_XPQq4F1gEemImYeM5hMuZQ" property_values="rating" collection_variable="review"/>
+  <SDDProfile:DataBinding xmi:id="_w-1ncF1gEemImYeM5hMuZQ" base_InstanceSpecification="_h5IMkF1gEemImYeM5hMuZQ" property_values="content" collection_variable="review"/>
+  <SDDProfile:DataBinding xmi:id="_yG9tIF1gEemImYeM5hMuZQ" base_InstanceSpecification="_lnQEIF1gEemImYeM5hMuZQ" property_values="author" collection_variable="review"/>
+  <SDDProfile:DataBinding xmi:id="_zHumkF1gEemImYeM5hMuZQ" base_InstanceSpecification="_pjbl0F1gEemImYeM5hMuZQ" property_values="createdAt" collection_variable="review"/>
+  <SDDProfile:CustomElement xmi:id="_iziw8F1hEemImYeM5hMuZQ" name="app-addreview" base_InstanceSpecification="_eDzrYF1hEemImYeM5hMuZQ"/>
+  <SDDProfile:DOM_Manipulation xmi:id="_pY63kF1jEemImYeM5hMuZQ" local_variable="review" collection_property="all_reviews" base_InstanceSpecification="_xmG4QF1fEemImYeM5hMuZQ"/>
+  <SDDProfile:DOM_Manipulation xmi:id="_sFhAsF1jEemImYeM5hMuZQ" local_variable="movie" collection_property="all_movies" base_InstanceSpecification="_wkUaMF1WEemImYeM5hMuZQ"/>
+  <SDDProfile:Text xmi:id="_pLb_wF1kEemImYeM5hMuZQ" base_InstanceSpecification="_kjTXAF1kEemImYeM5hMuZQ" text_name="Movie App"/>
+  <SDDProfile:DataBinding xmi:id="_3kCAgF1lEemImYeM5hMuZQ" type="event" base_InstanceSpecification="_TCe-4F1UEemImYeM5hMuZQ"/>
+  <SDDProfile:DataBinding xmi:id="_R_SscF1oEemImYeM5hMuZQ" type="event" base_InstanceSpecification="_dm9VIF1SEemImYeM5hMuZQ"/>
+  <SDDProfile:DataBinding xmi:id="_S6d7QF1oEemImYeM5hMuZQ" type="event" base_InstanceSpecification="_qBN2YF1SEemImYeM5hMuZQ"/>
+  <SDDProfile:DataBinding xmi:id="_a2vZYF3YEemImYeM5hMuZQ" type="event" event_handler="_z2Fi4F6IEemImYeM5hMuZQ" base_InstanceSpecification="_wkUaMF1WEemImYeM5hMuZQ"/>
+  <SDDProfile:Card xmi:id="_9vupgF4wEemImYeM5hMuZQ" base_InstanceSpecification="_2Z_LAF4wEemImYeM5hMuZQ" image_path="../../assets/img/movieicon.jpg" image_position="top"/>
+  <SDDProfile:Card xmi:id="_-X-YcF40EemImYeM5hMuZQ" base_InstanceSpecification="_8EkRoF1TEemImYeM5hMuZQ" content_type="body"/>
+  <SDDProfile:Card xmi:id="_FU6VYF41EemImYeM5hMuZQ" base_InstanceSpecification="_41-OsF1TEemImYeM5hMuZQ" content_type="text"/>
+  <SDDProfile:Card xmi:id="_J2ylIF41EemImYeM5hMuZQ" base_InstanceSpecification="_kjTXAF1kEemImYeM5hMuZQ" content_type="title"/>
+  <SDDProfile:Authentication xmi:id="_qi55MF45EemImYeM5hMuZQ" Variables="_0RWuIF5-EemImYeM5hMuZQ _DWoEIF5_EemImYeM5hMuZQ _DWoEIV5_EemImYeM5hMuZQ" base_State="_k1AiQF45EemImYeM5hMuZQ"/>
+  <SDDProfile:UI_Router xmi:id="_JF8kwF46EemImYeM5hMuZQ" base_State="_R9qeQF44EemImYeM5hMuZQ" Route_Path=" "/>
+  <SDDProfile:Authentication xmi:id="_aMMUAF46EemImYeM5hMuZQ" Operations="_fK0VEF6FEemImYeM5hMuZQ" base_State="_WJmoUF46EemImYeM5hMuZQ" Service_Variable="_rMdiAF6FEemImYeM5hMuZQ"/>
+  <SDDProfile:UI_Router xmi:id="_T-85MF47EemImYeM5hMuZQ" base_State="_M6cUoF47EemImYeM5hMuZQ" Route_Path="movie" Variables="_cmhhEF49EemImYeM5hMuZQ"/>
+  <SDDProfile:Client xmi:id="_wQrCYF47EemImYeM5hMuZQ" base_State="_lXhHgF47EemImYeM5hMuZQ" Operations="_iFUsEF49EemImYeM5hMuZQ" C_Parameter="_t4XcUF49EemImYeM5hMuZQ"/>
+  <SDDProfile:Client xmi:id="_xDpXcF47EemImYeM5hMuZQ" base_State="_WUJO8F47EemImYeM5hMuZQ" Route_Path="addmovie" Operations="_K7CE0F4_EemImYeM5hMuZQ" C_Parameter="__N1TUF49EemImYeM5hMuZQ"/>
+  <SDDProfile:Cache xmi:id="_FkNRcF48EemImYeM5hMuZQ" base_State="_8E10AF47EemImYeM5hMuZQ"/>
+  <SDDProfile:ProxyServer xmi:id="_YJEo4F4-EemImYeM5hMuZQ" base_State="_JFi_UF4-EemImYeM5hMuZQ"/>
+  <SDDProfile:StorageSystemProtocolConverter xmi:id="_pEZsIF4_EemImYeM5hMuZQ" Operations="_oYsVsF6MEemImYeM5hMuZQ" Variables="_E9jVRl04EemImYeM5hMuZQ _E9jVRF04EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ _DOJVIF9REemDkbkV0eWFsg" key="_SRu1sF54EemImYeM5hMuZQ" base_State="_hoWKQF4_EemImYeM5hMuZQ"/>
+  <SDDProfile:StorageSystemProtocolConverter xmi:id="_p_UcQF4_EemImYeM5hMuZQ" Operations="_Oir-0F59EemImYeM5hMuZQ" Variables="_8IhpQF5_EemImYeM5hMuZQ _8IhpQV5_EemImYeM5hMuZQ" base_State="_k9BnEF4_EemImYeM5hMuZQ"/>
+  <SDDProfile:DataSource xmi:id="_vCy9MF4_EemImYeM5hMuZQ" base_State="_q_eRsF4_EemImYeM5hMuZQ"/>
+  <SDDProfile:Client xmi:id="_voWPYF5BEemImYeM5hMuZQ" base_State="_m2uBsl5BEemImYeM5hMuZQ" Operations="_iFUsEF49EemImYeM5hMuZQ" C_Parameter="_t4XcUF49EemImYeM5hMuZQ"/>
+  <SDDProfile:Client xmi:id="_OQNJgF5CEemImYeM5hMuZQ" base_State="_yXogIF5BEemImYeM5hMuZQ" Route_Path="movie" Variables="_eDA5sF7sEemImYeM5hMuZQ _SRu1s154EemImYeM5hMuZQ _SRu1sl54EemImYeM5hMuZQ" Operations="_ahc6EF6BEemImYeM5hMuZQ" C_Parameter="_t4XcUF49EemImYeM5hMuZQ"/>
+  <SDDProfile:UI_Router xmi:id="_isY7MF6BEemImYeM5hMuZQ" base_State="_TfE3kF5BEemImYeM5hMuZQ" Route_Path="addMovie" Variables="_KZr78l7nEemImYeM5hMuZQ _KZiK9F7nEemImYeM5hMuZQ _KZr78F7nEemImYeM5hMuZQ _FFSNEF55EemImYeM5hMuZQ _FFIcEF55EemImYeM5hMuZQ _KZiK8l7nEemImYeM5hMuZQ _bNtSwl7nEemImYeM5hMuZQ _bNtSwF7nEemImYeM5hMuZQ _FFIcEV55EemImYeM5hMuZQ"/>
+  <SDDProfile:UI_Router xmi:id="_Og-VUF6CEemImYeM5hMuZQ" base_State="_8EsnQF6BEemImYeM5hMuZQ" Route_Path="movielist" Variables="_egcvgF7fEemImYeM5hMuZQ _egcvgV7fEemImYeM5hMuZQ _qCbkYGqlEemnVICEQtCLkA"/>
+  <SDDProfile:Client xmi:id="_ihkV0F6CEemImYeM5hMuZQ" base_State="_E23ngF6CEemImYeM5hMuZQ" Operations="_7VGbA108EemImYeM5hMuZQ" C_Parameter="_t4XcUF49EemImYeM5hMuZQ" Input_Property="_egcvgF7fEemImYeM5hMuZQ" Output_Property="_-xU14F7fEemImYeM5hMuZQ" handler_event="_LPFXEF7gEemImYeM5hMuZQ"/>
+  <SDDProfile:Client xmi:id="_jxAkcF6CEemImYeM5hMuZQ" base_State="_TZwCIF6CEemImYeM5hMuZQ" Route_Path="moviedetails" Operations="_z2Fi4F6IEemImYeM5hMuZQ" C_Parameter="__N1TUF49EemImYeM5hMuZQ"/>
+  <SDDProfile:Client xmi:id="_lDW9IF6CEemImYeM5hMuZQ" base_State="_WKqqkF6CEemImYeM5hMuZQ" Operations="_SG-gQF_CEemue7kLEzKvlg" C_Parameter="_t4XcUF49EemImYeM5hMuZQ"/>
+  <SDDProfile:StorageSystemProtocolConverter xmi:id="_yVxY8F6DEemImYeM5hMuZQ" Operations="_s-v60F6MEemImYeM5hMuZQ" key="_SRu1sF54EemImYeM5hMuZQ" base_State="_uWm0sF6DEemImYeM5hMuZQ"/>
+  <SDDProfile:Client xmi:id="_AyB_cF6KEemImYeM5hMuZQ" base_State="_89Vl0F6JEemImYeM5hMuZQ" Variables="_dKRJsGqmEemnVICEQtCLkA" Operations="_sLZtgF7oEemImYeM5hMuZQ" C_Parameter="_t4XcUF49EemImYeM5hMuZQ"/>
+  <SDDProfile:UI_Router xmi:id="_FRnJIF6KEemImYeM5hMuZQ" base_State="_z23JgF6JEemImYeM5hMuZQ" Route_Path="moviedetails" Router_Param="_SRu1sF54EemImYeM5hMuZQ" Variables="_SZsqAF7oEemImYeM5hMuZQ"/>
+  <SDDProfile:StorageSystemProtocolConverter xmi:id="_Cozo8F6MEemImYeM5hMuZQ" Operations="_1kNUwF6MEemImYeM5hMuZQ" key="_SRu1sF54EemImYeM5hMuZQ" base_State="_-j3M0F6LEemImYeM5hMuZQ"/>
+  <SDDProfile:Client xmi:id="_Y-k7oF6NEemImYeM5hMuZQ" base_State="_Thb9gF6NEemImYeM5hMuZQ" Variables="_eDA5sF7sEemImYeM5hMuZQ _SRu1s154EemImYeM5hMuZQ _YT_FUGqoEemnVICEQtCLkA" Operations="_aCt-8F7qEemImYeM5hMuZQ" Input_Property="_4rYKUF7qEemImYeM5hMuZQ"/>
+  <SDDProfile:UI_Router xmi:id="_aj7I0F6NEemImYeM5hMuZQ" base_State="_KH1w4F6NEemImYeM5hMuZQ" Route_Path=" " Variables="_soYpMF9QEemDkbkV0eWFsg _bNtSwF7nEemImYeM5hMuZQ _BUwQYF7qEemImYeM5hMuZQ _BUwQYV7qEemImYeM5hMuZQ _FFIcEV55EemImYeM5hMuZQ"/>
+  <SDDProfile:Client xmi:id="_wVlo4F6OEemImYeM5hMuZQ" base_State="_tJrGgF6OEemImYeM5hMuZQ" Operations="_iFUsEF49EemImYeM5hMuZQ" C_Parameter="_t4XcUF49EemImYeM5hMuZQ"/>
+  <SDDProfile:StorageSystemProtocolConverter xmi:id="_6YFhMF6REemImYeM5hMuZQ" Operations="_oYsVsF6MEemImYeM5hMuZQ" Variables="_jriQE105EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ _soYpMF9QEemDkbkV0eWFsg" key="_9esZoF89EemImYeM5hMuZQ _9e1jkF89EemImYeM5hMuZQ" base_State="_2_DI0F6REemImYeM5hMuZQ"/>
+  <SDDProfile:DataSource xmi:id="_DYJMcF6SEemImYeM5hMuZQ" base_State="__viHAF6REemImYeM5hMuZQ"/>
+  <SDDProfile:UI_Router xmi:id="_U8wdQF6TEemImYeM5hMuZQ" base_State="_I54hQF6TEemImYeM5hMuZQ" Route_Path=" " Variables="_BUwQYV7qEemImYeM5hMuZQ _9-qhgF7tEemImYeM5hMuZQ _udONUGqoEemnVICEQtCLkA"/>
+  <SDDProfile:Client xmi:id="_Yx6J4F6TEemImYeM5hMuZQ" base_State="_WAaSoF6TEemImYeM5hMuZQ" Operations="_N--jcF7uEemImYeM5hMuZQ" C_Parameter="_t4XcUF49EemImYeM5hMuZQ" Input_Property="_4rYKUF7qEemImYeM5hMuZQ _BUwQYV7qEemImYeM5hMuZQ"/>
+  <SDDProfile:StorageSystemProtocolConverter xmi:id="_6XvBQF6kEemImYeM5hMuZQ" Operations="_bwAlAF7bEemImYeM5hMuZQ" key="_SRu1sF54EemImYeM5hMuZQ" Value_Placeholder="_E9jVRl04EemImYeM5hMuZQ _E9jVQl04EemImYeM5hMuZQ _E9jVRF04EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ _E9jVQV04EemImYeM5hMuZQ" Values="_E9jVRl04EemImYeM5hMuZQ _E9jVQl04EemImYeM5hMuZQ _E9jVRF04EemImYeM5hMuZQ _E9jVRV04EemImYeM5hMuZQ _E9jVQ104EemImYeM5hMuZQ _E9jVQV04EemImYeM5hMuZQ" base_State="_2Ptb8F6kEemImYeM5hMuZQ"/>
+  <SDDProfile:Client xmi:id="_5P6BEF6lEemImYeM5hMuZQ" base_State="_y8Q4wF6lEemImYeM5hMuZQ" Variables="_p5Z54F7hEemImYeM5hMuZQ" Operations="_i1wUIF7lEemImYeM5hMuZQ" C_Parameter="_t4XcUF49EemImYeM5hMuZQ"/>
+  <SDDProfile:StorageSystemProtocolConverter xmi:id="_RQW3cF6oEemImYeM5hMuZQ" Operations="_m8a9oF7cEemImYeM5hMuZQ" Variables="_wZhRIF9TEemDkbkV0eWFsg _8IhpQV5_EemImYeM5hMuZQ" Value_Placeholder="_jriQEl05EemImYeM5hMuZQ" Values="_E9jVQF04EemImYeM5hMuZQ" base_State="_N1RQoF6oEemImYeM5hMuZQ" Secondary_Index="movieID-Index"/>
+  <SDDProfile:Request_Data xmi:id="_xA2PEF_QEemue7kLEzKvlg" Fields="_E9jVQF04EemImYeM5hMuZQ _E9jVRl04EemImYeM5hMuZQ _E9jVQl04EemImYeM5hMuZQ _E9jVRF04EemImYeM5hMuZQ" base_Operation="_lKmZol06EemImYeM5hMuZQ"/>
+  <SDDProfile:Request_Data xmi:id="_nptrIF_REemue7kLEzKvlg" Fields="_9esZoF89EemImYeM5hMuZQ _9e1jkF89EemImYeM5hMuZQ" base_Operation="_lKmZoF06EemImYeM5hMuZQ"/>
+  <SDDProfile:FormControl xmi:id="_-nkBYGR7EemWfd3qIX4cjg" base_InstanceSpecification="_HkQsEGR7EemWfd3qIX4cjg"/>
+  <SDDProfile:Input xmi:id="_AlE28GR8EemWfd3qIX4cjg" base_InstanceSpecification="_QXqbYGR7EemWfd3qIX4cjg" form_layout="control" type="text" placeholder_value="Enter a rating between 1 to 10" input_name="rating" label_id="rating" label_text="Rating"/>
+  <SDDProfile:Input xmi:id="_CcpckGR8EemWfd3qIX4cjg" base_InstanceSpecification="_W9I6kGR7EemWfd3qIX4cjg" type="text" placeholder_value="What say you?" input_name="review" label_id="review" label_text="Review"/>
+  <SDDProfile:Button xmi:id="_EAPWQGR8EemWfd3qIX4cjg" base_InstanceSpecification="_sBT38GR7EemWfd3qIX4cjg"/>
+  <SDDProfile:DataBinding xmi:id="_It2iUGrGEemnVICEQtCLkA" type="property" input_property="_TdZOMGrGEemnVICEQtCLkA" base_InstanceSpecification="_cYQmAF1VEemImYeM5hMuZQ"/>
+  <SDDProfile:DataBinding xmi:id="_tBCnkGrGEemnVICEQtCLkA" input_property="_-ijWgGrGEemnVICEQtCLkA _-ijWgmrGEemnVICEQtCLkA" base_InstanceSpecification="_31D_wF1dEemImYeM5hMuZQ"/>
+  <SDDProfile:DataBinding xmi:id="_Ug_jwGrHEemnVICEQtCLkA" type="property" input_property="_bIgqUGrHEemnVICEQtCLkA" base_InstanceSpecification="_eDzrYF1hEemImYeM5hMuZQ"/>
+</xmi:XMI>
